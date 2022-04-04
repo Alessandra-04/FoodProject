@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SecondaryController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SecondaryController">
          <children>
-      <HBox fx:id="hboxtitle" alignment="CENTER_LEFT" layoutX="225.0" prefHeight="61.0" prefWidth="580.0" style="-fx-background-color: #4169E1;">
+      <Pane fx:id="pnlTitle" layoutX="225.0" prefHeight="61.0" prefWidth="580.0" style="-fx-background-color: #9FE7F5;">
          <children>
-            <Label graphicTextGap="10.0" text="ORDERS" textFill="WHITE">
+            <Label fx:id="lblTitleUnit" graphicTextGap="10.0" layoutX="30.0" layoutY="16.0" text="OVERVIEW" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </children>
-         <padding>
-            <Insets left="35.0" />
-         </padding>
-      </HBox>
+      </Pane>
       <VBox prefHeight="604.0" prefWidth="225.0" style="-fx-background-color: #003049;">
          <children>
             <HBox fx:id="logohbox" alignment="CENTER_LEFT" prefHeight="134.0" prefWidth="225.0" style="-fx-background-color: #003049;">
@@ -43,7 +55,7 @@
                   <Insets left="35.0" />
                </padding>
             </HBox>
-            <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Overview" textFill="WHITE">
+            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClinks" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Overview" textFill="WHITE">
                <padding>
                   <Insets left="30.0" />
                </padding>
@@ -53,7 +65,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showOrdersDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Orders" textFill="WHITE">
+            <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClinks" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Orders" textFill="WHITE">
                <padding>
                   <Insets left="30.0" />
                </padding>
@@ -63,7 +75,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnInventory" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showInventoryDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Inventory" textFill="WHITE">
+            <Button fx:id="btnInventory" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClinks" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Inventory" textFill="WHITE">
                <padding>
                   <Insets left="30.0" />
                </padding>
@@ -73,7 +85,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnProducts" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showProductsDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Products" textFill="WHITE">
+            <Button fx:id="btnProducts" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClinks" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Products" textFill="WHITE">
                <padding>
                   <Insets left="30.0" />
                </padding>
@@ -83,7 +95,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCustomersDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Customers" textFill="WHITE">
+            <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClinks" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Customers" textFill="WHITE">
                <padding>
                   <Insets left="30.0" />
                </padding>
@@ -93,7 +105,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnEmployees" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showEmployeesDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Employees" textFill="WHITE">
+            <Button fx:id="btnEmployees" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleClinks" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Employees" textFill="WHITE">
                <padding>
                   <Insets left="30.0" />
                </padding>
@@ -115,5 +127,187 @@
             </Button>
          </children>
       </VBox>
+      <StackPane layoutX="254.0" layoutY="85.0">
+         <children>
+            <GridPane fx:id="pnlOrders" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="pnlProducts" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="pnlCustomers" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="pnlEmployees" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="403.0" minHeight="10.0" prefHeight="403.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="526.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn prefWidth="34.0" text="ID" />
+                      <TableColumn prefWidth="140.0" text="First Name" />
+                        <TableColumn prefWidth="75.0" text="Last Name" />
+                        <TableColumn prefWidth="75.0" text="Shift" />
+                        <TableColumn prefWidth="75.0" text="Start contract" />
+                        <TableColumn prefWidth="75.0" text="Finish contract" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="271.0" />
+                  <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="98.0">
+                     <GridPane.margin>
+                        <Insets left="275.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="+ Add employee">
+                     <GridPane.margin>
+                        <Insets left="400.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnlInventory" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="413.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TabPane prefHeight="342.0" prefWidth="526.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Churros">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView layoutY="59.0" prefHeight="333.0" prefWidth="526.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Product ID" />
+                                        <TableColumn prefWidth="75.0" text="Brand" />
+                                          <TableColumn prefWidth="75.0" text="Seller" />
+                                          <TableColumn prefWidth="107.0" text="Price" />
+                                          <TableColumn prefWidth="75.0" text="Brand" />
+                                          <TableColumn prefWidth="75.0" text="Stock Available" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="191.0" />
+                                    <ComboBox layoutX="205.0" layoutY="20.0" prefHeight="25.0" prefWidth="76.0" />
+                                    <Button layoutX="290.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="+Add Product" />
+                                    <Button layoutX="369.0" layoutY="396.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="+ Create Shopping List" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Cookies">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                        <Tab text="Ice-Cream">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnlOverview" prefHeight="448.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="390.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <PieChart fx:id="pieChartOverview" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="232.0" title="Most sold products" GridPane.rowIndex="1" />
+                  <LineChart fx:id="linearGraphOverview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="265.0" title="Sales by month" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="525.0" spacing="10.0">
+                     <children>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="178.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="8.0" layoutY="54.0" text="ORDERS COMPLETED TODAY">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="67.0" layoutY="7.0" text="10" textFill="WHITE">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="168.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="13.0" layoutY="54.0" text="PRODUCTS SOLD TODAY">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="59.0" layoutY="7.0" text="10" textFill="WHITE">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="161.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="58.0" layoutY="7.0" text="03" textFill="#f23030">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="29.0" layoutY="54.0" text="ORDERS PENDING">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
          </children>
       </AnchorPane>
