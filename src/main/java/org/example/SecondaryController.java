@@ -9,6 +9,10 @@ public class SecondaryController {
 
     public Button btnProducts;
     public HBox hboxtitle;
+    public Button btnOrders;
+    public Button btnInventory;
+    public Button btnCustomers;
+    public Button btnEmployees;
 
     @FXML
     private void switchToPrimary() throws IOException {

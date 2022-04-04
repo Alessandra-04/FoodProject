@@ -3,146 +3,117 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SecondaryController">
          <children>
-      <BorderPane layoutX="-1.0" layoutY="-1.0" prefHeight="604.0" prefWidth="805.0">
-         <left>
-            <VBox prefHeight="604.0" prefWidth="225.0" style="-fx-background-color: #5498C7;" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #5498C7;" text="Dashboard" textFill="WHITE">
-                     <padding>
-                        <Insets left="30.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../java/icons/dashboard.png" />
-                        </ImageView>
-                     </graphic></Button>
-                  <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #5498C7;" text="Orders" textFill="WHITE">
-                     <padding>
-                        <Insets left="30.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../java/icons/orders.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnInventory" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #5498C7;" text="Inventory" textFill="WHITE">
-                     <padding>
-                        <Insets left="30.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../java/icons/inventory.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnProducts" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showProductsDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #5498C7;" text="Products" textFill="WHITE">
-                     <padding>
-                        <Insets left="30.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../java/icons/products.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #5498C7;" text="Customers" textFill="WHITE">
-                     <padding>
-                        <Insets left="30.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../java/icons/customers.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnEmployees" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #5498C7;" text="Employees" textFill="WHITE">
-                     <padding>
-                        <Insets left="30.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../java/icons/employees.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btnLogout" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchToPrimary" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #5498C7;" text="Log out" textFill="WHITE">
-                     <padding>
-                        <Insets left="30.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../java/icons/logout.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </VBox>
-         </left>
-         <top>
-            <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="805.0" style="-fx-background-color: #4680b3;" BorderPane.alignment="CENTER">
+      <HBox fx:id="hboxtitle" alignment="CENTER_LEFT" layoutX="225.0" prefHeight="61.0" prefWidth="580.0" style="-fx-background-color: #4169E1;">
+         <children>
+            <Label graphicTextGap="10.0" text="ORDERS" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="35.0" />
+         </padding>
+      </HBox>
+      <VBox prefHeight="604.0" prefWidth="225.0" style="-fx-background-color: #003049;">
+         <children>
+            <HBox fx:id="logohbox" alignment="CENTER_LEFT" prefHeight="134.0" prefWidth="225.0" style="-fx-background-color: #003049;">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../java/icons/logo.png" />
                      </image>
                   </ImageView>
-                  <Label graphicTextGap="10.0" text="HESTIA FOODS" textFill="WHITE">
+                  <Label graphicTextGap="10.0" prefHeight="29.0" prefWidth="143.0" text="HESTIA FOODS" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
                </children>
                <padding>
                   <Insets left="35.0" />
-               </padding></HBox>
-         </top>
-         <center>
-            <BorderPane fx:id="BorderPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <top>
-                  <HBox fx:id="hboxtitle" alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="805.0" style="-fx-background-color: #4680b3;" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label graphicTextGap="10.0" text="HESTIA FOODS" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets left="35.0" />
-                     </padding>
-                  </HBox>
-               </top>
-               <left>
-                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-                    <tabs>
-                      <Tab text="Untitled Tab 1">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </Tab>
-                      <Tab text="Untitled Tab 2">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
-               </left>
-            </BorderPane>
-         </center>
-      </BorderPane>
+               </padding>
+            </HBox>
+            <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Overview" textFill="WHITE">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../../java/icons/dashboard.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showOrdersDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Orders" textFill="WHITE">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../../java/icons/orders.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnInventory" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showInventoryDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Inventory" textFill="WHITE">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../../java/icons/inventory.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnProducts" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showProductsDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Products" textFill="WHITE">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../../java/icons/products.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCustomersDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Customers" textFill="WHITE">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../../java/icons/customers.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEmployees" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#showEmployeesDashboard" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Employees" textFill="WHITE">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../../java/icons/employees.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnLogout" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#switchToPrimary" prefHeight="48.0" prefWidth="225.0" style="-fx-background-color: #003049;" text="Log out" textFill="WHITE">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../../../java/icons/logout.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
          </children>
       </AnchorPane>
