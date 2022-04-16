@@ -62,6 +62,28 @@ public class SecondaryController implements Initializable {
     @FXML
     private GridPane pnlProducts;
 
+    // buttons
+
+    // Buttons in the panel of Orders
+    @FXML
+    private Button btnOrdersAddOrder;
+
+    // Buttons in the panel of Inventory
+    @FXML
+    private Button btnInventoryExpenses, btnInventoryShoppingList, btnInventoryAddItem;
+
+    // Buttons in the panel of Products
+    @FXML
+    private Button btnProductsRecipe, btnProductsAddProduct;
+
+    // Button in the panel of Customer
+    @FXML
+    private Button btnCustomerAddCustomer;
+
+    // Button in the panel of Employees
+    @FXML
+    private Button btnEmployeesAddEmployee;
+
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");

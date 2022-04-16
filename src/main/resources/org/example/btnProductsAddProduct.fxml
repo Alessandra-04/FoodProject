@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="301.0" prefWidth="337.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnProductsAddOrder">
+   <children>
+      <Label layoutX="39.0" layoutY="40.0" text="Product ID" textFill="WHITE" />
+      <Label layoutX="40.0" layoutY="74.0" text="Category" textFill="WHITE" />
+      <Label layoutX="40.0" layoutY="108.0" text="Amount Produced" textFill="WHITE" />
+      <Label layoutX="38.0" layoutY="160.0" text="Date Made" textFill="WHITE" />
+      <Label layoutX="39.0" layoutY="221.0" text="Due Date" textFill="WHITE" />
+      <TextField layoutX="118.0" layoutY="36.0" />
+      <TextField layoutX="118.0" layoutY="70.0" />
+      <TextField layoutX="156.0" layoutY="104.0" prefHeight="25.0" prefWidth="111.0" />
+      <DatePicker layoutX="106.0" layoutY="156.0" />
+      <DatePicker layoutX="106.0" layoutY="217.0" />
+   </children>
+</AnchorPane>
