@@ -6,12 +6,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class SecondaryController implements Initializable {
 
@@ -62,7 +66,7 @@ public class SecondaryController implements Initializable {
     @FXML
     private GridPane pnlProducts;
 
-    // buttons
+    // BUTTONS
 
     // Buttons in the panel of Orders
     @FXML
@@ -84,10 +88,6 @@ public class SecondaryController implements Initializable {
     @FXML
     private Button btnEmployeesAddEmployee;
 
-    @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
