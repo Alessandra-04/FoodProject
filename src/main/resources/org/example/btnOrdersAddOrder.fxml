@@ -13,11 +13,11 @@
       <TextField layoutX="106.0" layoutY="28.0" />
       <TextField layoutX="106.0" layoutY="62.0" />
       <TextArea layoutX="281.0" layoutY="55.0" prefHeight="121.0" prefWidth="149.0" />
-      <TextField layoutX="116.0" layoutY="96.0" prefHeight="25.0" prefWidth="139.0" />
+      <TextField layoutX="106.0" layoutY="96.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="27.0" layoutY="32.0" text="Product ID" textFill="WHITE" />
       <Label layoutX="27.0" layoutY="67.0" text="Customer ID" textFill="WHITE" />
       <Label layoutX="298.0" layoutY="32.0" prefHeight="17.0" prefWidth="115.0" text="Description of Order" textFill="WHITE" />
-      <Label layoutX="27.0" layoutY="101.0" text="Price for Order" textFill="WHITE" />
+      <Label layoutX="27.0" layoutY="101.0" text="Total Price" textFill="WHITE" />
       <Label layoutX="27.0" layoutY="176.0" text="Status" textFill="WHITE" />
       <Label layoutX="27.0" layoutY="134.0" text="Assigned Employee" textFill="WHITE" />
       <TextField layoutX="140.0" layoutY="130.0" prefHeight="25.0" prefWidth="115.0" />
