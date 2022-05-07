@@ -9,9 +9,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import com.google.gson.GsonBuilder;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
 
 
-    public class Staff {
+public class Staff {
 
         public static void main(String[] args) {
 
@@ -50,5 +52,10 @@ import com.google.gson.GsonBuilder;
 
         }
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        @Override
+        public void start(Stage stage) throws Exception {
+            Parent root = FMLXLoader.load(g)
+        }
     }
 

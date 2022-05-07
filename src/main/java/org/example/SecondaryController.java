@@ -129,4 +129,7 @@ public class SecondaryController implements Initializable {
 
     public void switchToPrimary(ActionEvent actionEvent) {
     }
+
+    public void handleBtnAddOrder(ActionEvent actionEvent) {
+    }
 }

@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="324.0" prefWidth="393.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnInventoryExpenses">
    <children>
       <Label layoutX="63.0" layoutY="27.0" text="Shopping List" textFill="WHITE" />
@@ -21,8 +20,8 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="149.0" layoutY="23.0" mnemonicParsing="false" text="Print" />
-      <Button layoutX="149.0" layoutY="273.0" mnemonicParsing="false" text="Scan Reciept" />
+      <Button fx:id="btnScanReciept" layoutX="149.0" layoutY="273.0" mnemonicParsing="false" onAction="#goScanner" text="Scan Reciept" />
       <Button layoutX="62.0" layoutY="273.0" mnemonicParsing="false" text="Completed" />
-      <Button layoutX="294.0" layoutY="273.0" mnemonicParsing="false" text="Save" />
+      <Button fx:id="btnSave" layoutX="294.0" layoutY="273.0" mnemonicParsing="false" onAction="#goInventory" text="Save" />
    </children>
 </AnchorPane>
