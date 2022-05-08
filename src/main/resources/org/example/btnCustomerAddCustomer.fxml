@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="323.0" prefWidth="528.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnCustomerAddCustomer">
+<AnchorPane prefHeight="323.0" prefWidth="528.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnCustomerAddCustomerController">
    <children>
       <Label layoutX="63.0" layoutY="43.0" text="Customer ID" textFill="WHITE" />
       <Label layoutX="63.0" layoutY="74.0" text="Name" textFill="WHITE" />

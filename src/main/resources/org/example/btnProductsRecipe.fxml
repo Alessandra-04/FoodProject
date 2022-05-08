@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="417.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnProductsRecipe">
+<AnchorPane prefHeight="417.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnProductsRecipeController">
    <children>
       <TabPane prefHeight="375.0" prefWidth="504.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>

@@ -129,133 +129,35 @@
       </VBox>
       <StackPane layoutX="247.0" layoutY="82.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="82.0">
          <children>
-            <GridPane fx:id="pnlOverview" prefHeight="448.0" prefWidth="526.0" style="-fx-background-color: #fff;">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="390.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <PieChart fx:id="pieChartOverview" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="232.0" title="Most sold products" GridPane.rowIndex="1" />
-                  <LineChart fx:id="linearGraphOverview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="265.0" title="Sales by month" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
-                  </LineChart>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="525.0" spacing="10.0">
-                     <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="178.0" style="-fx-background-color: #9FE7F5;">
-                           <children>
-                              <Label layoutX="8.0" layoutY="54.0" text="ORDERS COMPLETED TODAY">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="67.0" layoutY="7.0" text="10" textFill="WHITE">
-                                 <font>
-                                    <Font name="HoloLens MDL2 Assets" size="42.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="168.0" style="-fx-background-color: #9FE7F5;">
-                           <children>
-                              <Label layoutX="13.0" layoutY="54.0" text="PRODUCTS SOLD TODAY">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="59.0" layoutY="7.0" text="10" textFill="WHITE">
-                                 <font>
-                                    <Font size="42.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="158.0" style="-fx-background-color: #9FE7F5;">
-                           <children>
-                              <Label layoutX="58.0" layoutY="7.0" text="03">
-                                 <font>
-                                    <Font name="HoloLens MDL2 Assets" size="42.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="29.0" layoutY="54.0" text="ORDERS PENDING">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </HBox>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnlEmployees" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+            <GridPane fx:id="pnlOrders" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="403.0" minHeight="10.0" prefHeight="403.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="389.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="526.0" GridPane.rowIndex="1">
+                  <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn prefWidth="77.0" text="Employee ID" />
-                      <TableColumn prefWidth="53.0" text="Name" />
-                        <TableColumn prefWidth="54.0" text="Shift" />
-                        <TableColumn prefWidth="87.0" text="Start cntrct" />
-                        <TableColumn prefWidth="88.0" text="Finish cntrct" />
-                        <TableColumn prefWidth="166.0" text="Orders Currently Assigned" />
+                      <TableColumn prefWidth="75.0" text="Product ID" />
+                      <TableColumn prefWidth="75.0" text="Customer ID" />
+                        <TableColumn prefWidth="74.0" text="Description" />
+                        <TableColumn prefWidth="72.0" text="Total Price" />
+                        <TableColumn prefWidth="47.0" text="Status" />
+                        <TableColumn prefWidth="133.0" text="Assigned Employee" />
+                        <TableColumn prefWidth="49.0" text="Date" />
                     </columns>
                   </TableView>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="276.0" />
-                  <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="98.0">
+                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="201.0" />
+                  <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="138.0">
                      <GridPane.margin>
-                        <Insets left="275.0" />
+                        <Insets left="200.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <Button fx:id="btnEmployeesAddEmployee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="+ Add employee">
+                  <Button fx:id="btnOrdersAddOrder" mnemonicParsing="false" onAction="#handleBtnAddOrder" text="+ Add Order">
                      <GridPane.margin>
-                        <Insets left="400.0" />
-                     </GridPane.margin>
-                  </Button>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnlCustomers" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="396.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <TableView prefHeight="382.0" prefWidth="526.0" GridPane.rowIndex="1">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="CustomerID" />
-                      <TableColumn prefWidth="75.0" text="Name" />
-                        <TableColumn prefWidth="118.0" text="Date of Purchase" />
-                        <TableColumn prefWidth="128.0" text="Description of Order" />
-                        <TableColumn prefWidth="66.0" text="Review" />
-                        <TableColumn prefWidth="63.0" text="Contact" />
-                    </columns>
-                  </TableView>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                  <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="106.0">
-                     <GridPane.margin>
-                        <Insets left="250.0" />
-                     </GridPane.margin>
-                  </ComboBox>
-                  <Button fx:id="btnCustomerAddCustomer" mnemonicParsing="false" text="+ Add Customer">
-                     <GridPane.margin>
-                        <Insets left="420.0" />
+                        <Insets left="440.0" />
                      </GridPane.margin>
                   </Button>
                </children>
@@ -313,43 +215,10 @@
                         </Tab>
                      </tabs>
                   </TabPane>
-                  <Button fx:id="btnProductsRecipe" mnemonicParsing="false" text="Recipe" GridPane.rowIndex="1" />
-                  <Button fx:id="btnProductsAddProduct" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="+Add Product" GridPane.rowIndex="1">
+                  <Button fx:id="btnProductsRecipe" mnemonicParsing="false" onAction="#handleBtnRecipe" text="Recipe" GridPane.rowIndex="1" />
+                  <Button fx:id="btnProductsAddProduct" mnemonicParsing="false" onAction="#handleBtnAddProduct" prefHeight="25.0" prefWidth="98.0" text="+Add Product" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="425.0" />
-                     </GridPane.margin>
-                  </Button>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnlOrders" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="389.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Product ID" />
-                      <TableColumn prefWidth="75.0" text="Customer ID" />
-                        <TableColumn prefWidth="74.0" text="Description" />
-                        <TableColumn prefWidth="72.0" text="Total Price" />
-                        <TableColumn prefWidth="47.0" text="Status" />
-                        <TableColumn prefWidth="133.0" text="Assigned Employee" />
-                        <TableColumn prefWidth="49.0" text="Date" />
-                    </columns>
-                  </TableView>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="201.0" />
-                  <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="138.0">
-                     <GridPane.margin>
-                        <Insets left="200.0" />
-                     </GridPane.margin>
-                  </ComboBox>
-                  <Button fx:id="btnOrdersAddOrder" mnemonicParsing="false" onAction="#handleBtnAddOrder" text="+ Add Order">
-                     <GridPane.margin>
-                        <Insets left="440.0" />
                      </GridPane.margin>
                   </Button>
                </children>
@@ -420,10 +289,141 @@
                         <Insets left="100.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnInventoryExpenses" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Expenses" GridPane.rowIndex="1" />
-                  <Button fx:id="btnInventoryAddItem" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="+Add Item" GridPane.rowIndex="1">
+                  <Button fx:id="btnInventoryExpenses" mnemonicParsing="false" onAction="#handleBtnExpenses" prefHeight="25.0" prefWidth="98.0" text="Expenses" GridPane.rowIndex="1" />
+                  <Button fx:id="btnInventoryAddItem" mnemonicParsing="false" onAction="#handleBtnAddItem" prefHeight="25.0" prefWidth="98.0" text="+Add Item" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="425.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnlOverview" prefHeight="448.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="390.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <PieChart fx:id="pieChartOverview" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="232.0" title="Most sold products" GridPane.rowIndex="1" />
+                  <LineChart fx:id="linearGraphOverview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="265.0" title="Sales by month" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="525.0" spacing="10.0">
+                     <children>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="178.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="8.0" layoutY="54.0" text="ORDERS COMPLETED TODAY">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="67.0" layoutY="7.0" text="10" textFill="WHITE">
+                                 <font>
+                                    <Font name="HoloLens MDL2 Assets" size="42.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="168.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="13.0" layoutY="54.0" text="PRODUCTS SOLD TODAY">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="59.0" layoutY="7.0" text="10" textFill="WHITE">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="158.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="58.0" layoutY="7.0" text="03">
+                                 <font>
+                                    <Font name="HoloLens MDL2 Assets" size="42.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="29.0" layoutY="54.0" text="ORDERS PENDING">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnlCustomers" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="396.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TableView prefHeight="382.0" prefWidth="526.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="CustomerID" />
+                      <TableColumn prefWidth="75.0" text="Name" />
+                        <TableColumn prefWidth="118.0" text="Date of Purchase" />
+                        <TableColumn prefWidth="128.0" text="Description of Order" />
+                        <TableColumn prefWidth="66.0" text="Review" />
+                        <TableColumn prefWidth="63.0" text="Contact" />
+                    </columns>
+                  </TableView>
+                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
+                  <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="106.0">
+                     <GridPane.margin>
+                        <Insets left="250.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <Button fx:id="btnCustomerAddCustomer" mnemonicParsing="false" text="+ Add Customer">
+                     <GridPane.margin>
+                        <Insets left="420.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnlEmployees" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="403.0" minHeight="10.0" prefHeight="403.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="526.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn prefWidth="77.0" text="Employee ID" />
+                      <TableColumn prefWidth="53.0" text="Name" />
+                        <TableColumn prefWidth="54.0" text="Shift" />
+                        <TableColumn prefWidth="87.0" text="Start cntrct" />
+                        <TableColumn prefWidth="88.0" text="Finish cntrct" />
+                        <TableColumn prefWidth="166.0" text="Orders Currently Assigned" />
+                    </columns>
+                  </TableView>
+                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="276.0" />
+                  <ComboBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="98.0">
+                     <GridPane.margin>
+                        <Insets left="275.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <Button fx:id="btnEmployeesAddEmployee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="+ Add employee">
+                     <GridPane.margin>
+                        <Insets left="400.0" />
                      </GridPane.margin>
                   </Button>
                </children>
