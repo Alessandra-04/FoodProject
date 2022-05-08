@@ -53,9 +53,5 @@ public class Staff {
         }
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        @Override
-        public void start(Stage stage) throws Exception {
-            Parent root = FMLXLoader.load(g)
-        }
     }
 

@@ -9,12 +9,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class SecondaryController implements Initializable {
@@ -130,6 +132,26 @@ public class SecondaryController implements Initializable {
     public void switchToPrimary(ActionEvent actionEvent) {
     }
 
-    public void handleBtnAddOrder(ActionEvent actionEvent) {
+    public void handleBtnAddOrder(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                SecondaryController.class.getResource("btnOrdersAddOrder.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("My modal window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.show();
+    }
+        public void handleBtnShoppingList(ActionEvent actionEvent) throws IOException {
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(
+                    SecondaryController.class.getResource("btnInventoryShoppingList.fxml"));
+            stage.setScene(new Scene(root));
+            stage.setTitle("My modal window");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(
+                    ((Node)actionEvent.getSource()).getScene().getWindow() );
+            stage.show();
     }
 }
