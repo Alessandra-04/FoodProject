@@ -8,6 +8,9 @@ import java.util.ResourceBundle;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -140,16 +143,20 @@ public class SecondaryController implements Initializable {
 
     // JSON file of Inventory Churros (items)
 
+   ObservableList<ChurrosItems> churros =  FXCollections.observableArrayList();
     public void initialize() throws FileNotFoundException {
         Gson gson = new Gson();
 
         JsonElement json = gson.fromJson(new FileReader("C:\\Users\\aless\\IdeaProjects\\FoodProject\\src\\main\\java\\gsonfiles\\InventoryChurros"), JsonElement.class);
-        System.out.println(gson.toJson(json));
+      //  System.out.println(gson.toJson(json));
 
+        churros = gson.fromJson(json, ChurrosItems.class);
     // json file Inventory Cookies (items
-        json = gson.fromJson(new FileReader("C:\\Users\\aless\\IdeaProjects\\FoodProject\\src\\main\\java\\gsonfiles\\InventoryCookies"), JsonElement.class);
-        System.out.println(gson.toJson(json));
 
+        for (ChurrosItems c: churros) {
+
+        }
+        System.out.println(churros.toString());
     }
 
     // Orders Division

@@ -10,4 +10,13 @@ public class ChurrosItems {
     public String supplier;
     public String category;
 
+    public ChurrosItems(int productId, String name, String description, double standardCost, int stock, String supplier, String category) {
+        this.productId = productId;
+        this.name = name;
+        this.description = description;
+        this.standardCost = standardCost;
+        this.stock = stock;
+        this.supplier = supplier;
+        this.category = category;
+    }
 }
