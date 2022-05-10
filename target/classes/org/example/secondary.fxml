@@ -223,6 +223,73 @@
                   </Button>
                </children>
             </GridPane>
+            <GridPane fx:id="pnlOverview" prefHeight="448.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="390.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <PieChart fx:id="pieChartOverview" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="232.0" title="Most sold products" GridPane.rowIndex="1" />
+                  <LineChart fx:id="linearGraphOverview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="265.0" title="Sales by month" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="525.0" spacing="10.0">
+                     <children>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="178.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="8.0" layoutY="54.0" text="ORDERS COMPLETED TODAY">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="67.0" layoutY="7.0" text="10" textFill="WHITE">
+                                 <font>
+                                    <Font name="HoloLens MDL2 Assets" size="42.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="168.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="13.0" layoutY="54.0" text="PRODUCTS SOLD TODAY">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="59.0" layoutY="7.0" text="10" textFill="WHITE">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="158.0" style="-fx-background-color: #9FE7F5;">
+                           <children>
+                              <Label layoutX="58.0" layoutY="7.0" text="03">
+                                 <font>
+                                    <Font name="HoloLens MDL2 Assets" size="42.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="29.0" layoutY="54.0" text="ORDERS PENDING">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
             <GridPane fx:id="pnlInventory" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -297,73 +364,6 @@
                   </Button>
                </children>
             </GridPane>
-            <GridPane fx:id="pnlOverview" prefHeight="448.0" prefWidth="526.0" style="-fx-background-color: #fff;">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="390.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <PieChart fx:id="pieChartOverview" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="232.0" title="Most sold products" GridPane.rowIndex="1" />
-                  <LineChart fx:id="linearGraphOverview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="265.0" title="Sales by month" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
-                  </LineChart>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="525.0" spacing="10.0">
-                     <children>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="178.0" style="-fx-background-color: #9FE7F5;">
-                           <children>
-                              <Label layoutX="8.0" layoutY="54.0" text="ORDERS COMPLETED TODAY">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="67.0" layoutY="7.0" text="10" textFill="WHITE">
-                                 <font>
-                                    <Font name="HoloLens MDL2 Assets" size="42.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="168.0" style="-fx-background-color: #9FE7F5;">
-                           <children>
-                              <Label layoutX="13.0" layoutY="54.0" text="PRODUCTS SOLD TODAY">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="59.0" layoutY="7.0" text="10" textFill="WHITE">
-                                 <font>
-                                    <Font size="42.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="76.0" prefWidth="158.0" style="-fx-background-color: #9FE7F5;">
-                           <children>
-                              <Label layoutX="58.0" layoutY="7.0" text="03">
-                                 <font>
-                                    <Font name="HoloLens MDL2 Assets" size="42.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="29.0" layoutY="54.0" text="ORDERS PENDING">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </HBox>
-               </children>
-            </GridPane>
             <GridPane fx:id="pnlCustomers" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -389,7 +389,7 @@
                         <Insets left="250.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <Button fx:id="btnCustomerAddCustomer" mnemonicParsing="false" text="+ Add Customer">
+                  <Button fx:id="btnCustomerAddCustomer" mnemonicParsing="false" onAction="#handleBtnAddCustomer" text="+ Add Customer">
                      <GridPane.margin>
                         <Insets left="420.0" />
                      </GridPane.margin>
@@ -421,7 +421,7 @@
                         <Insets left="275.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <Button fx:id="btnEmployeesAddEmployee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="+ Add employee">
+                  <Button fx:id="btnEmployeesAddEmployee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleBtnAddEmployee" prefHeight="25.0" prefWidth="110.0" text="+ Add employee">
                      <GridPane.margin>
                         <Insets left="400.0" />
                      </GridPane.margin>

@@ -110,6 +110,7 @@ public class SecondaryController implements Initializable {
             lblTitleUnit.setText("ORDERS");
             pnlTitle.setBackground(new Background(new BackgroundFill(Color.rgb(157, 255, 232), CornerRadii.EMPTY, Insets.EMPTY)));
             pnlOrders.toFront();
+            initialize();
 
         } else if (event.getSource() == btnInventory) {
             lblTitleUnit.setText("INVENTORY");
@@ -137,10 +138,16 @@ public class SecondaryController implements Initializable {
     public void switchToPrimary(ActionEvent actionEvent) {
     }
 
+    // JSON file of Inventory Churros (items)
+
     public void initialize() throws FileNotFoundException {
         Gson gson = new Gson();
 
         JsonElement json = gson.fromJson(new FileReader("C:\\Users\\aless\\IdeaProjects\\FoodProject\\src\\main\\java\\gsonfiles\\InventoryChurros"), JsonElement.class);
+        System.out.println(gson.toJson(json));
+
+    // json file Inventory Cookies (items
+        json = gson.fromJson(new FileReader("C:\\Users\\aless\\IdeaProjects\\FoodProject\\src\\main\\java\\gsonfiles\\InventoryCookies"), JsonElement.class);
         System.out.println(gson.toJson(json));
 
     }
@@ -161,7 +168,7 @@ public class SecondaryController implements Initializable {
 
     // Inventory Division
 
-    public void handleBtnExpenses (ActionEvent actionEvent) throws IOException {
+    public void handleBtnExpenses(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnInventoryExpenses.fxml"));
@@ -173,58 +180,82 @@ public class SecondaryController implements Initializable {
         stage.show();
     }
 
-        public void handleBtnShoppingList(ActionEvent actionEvent) throws IOException {
-            Stage stage = new Stage();
-            Parent root = FXMLLoader.load(
-                    SecondaryController.class.getResource("btnInventoryShoppingList.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("My modal window");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(
-                    ((Node)actionEvent.getSource()).getScene().getWindow() );
-            stage.show();
-    }
-        public void handleBtnAddItem (ActionEvent actionEvent) throws IOException {
-            Stage stage = new Stage();
-            Parent root = FXMLLoader.load(
-                    SecondaryController.class.getResource("btnInventoryAddItem.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("My modal window");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(
-                    ((Node) actionEvent.getSource()).getScene().getWindow());
-            stage.show();
+    public void handleBtnShoppingList(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                SecondaryController.class.getResource("btnInventoryShoppingList.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("My modal window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.show();
     }
 
-            // Products Division
+    public void handleBtnAddItem(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                SecondaryController.class.getResource("btnInventoryAddItem.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("My modal window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.show();
+    }
 
-            public void handleBtnRecipe (ActionEvent actionEvent) throws IOException {
-                Stage stage = new Stage();
-                Parent root = FXMLLoader.load(
-                        SecondaryController.class.getResource("btnProductsRecipe.fxml"));
-                stage.setScene(new Scene(root));
-                stage.setTitle("My modal window");
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.initOwner(
-                        ((Node) actionEvent.getSource()).getScene().getWindow());
-                stage.show();
-            }
-            public void handleBtnAddProduct (ActionEvent actionEvent) throws IOException {
-                Stage stage = new Stage();
-                Parent root = FXMLLoader.load(
-                        SecondaryController.class.getResource("btnProductsRecipe.fxml"));
-                stage.setScene(new Scene(root));
-                stage.setTitle("My modal window");
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.initOwner(
-                        ((Node) actionEvent.getSource()).getScene().getWindow());
-                stage.show();
-            }
+    // Products Division
 
-            // Customers Division
+    public void handleBtnRecipe(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                SecondaryController.class.getResource("btnProductsRecipe.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("My modal window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.show();
+    }
 
+    public void handleBtnAddProduct(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                SecondaryController.class.getResource("btnProductsRecipe.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("My modal window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.show();
+    }
 
+    // Customers Division
 
-            // Employees Division
+    public void handleBtnAddCustomer(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                SecondaryController.class.getResource("btnCustomerAddCustomer.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("My modal window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.show();
+    }
 
-        }
+    // Employees Division
+
+    public void handleBtnAddEmployee(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                SecondaryController.class.getResource("btnEmployeesAddEmployee.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("My modal window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.show();
+
+    }
+}

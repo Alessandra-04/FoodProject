@@ -1,0 +1,22 @@
+{
+    "cookies": [
+    {
+        "productId": 1122334455667,
+  "name": "Chocolate",
+  "description": "Chocolate bitter 100% Cacao",
+  "standardCost": 5,
+  "stock": 6,
+  "supplier": "Liberica",
+  "category": "Secos"
+  },
+  {
+ "productId": 2233445566112,
+  "name": "Azucar",
+  "description": "Azucar Rubia",
+  "standardCost": 7,
+  "stock": 6,
+  "supplier": "Tottus",
+  "category": "Secos"
+        }
+    ]
+}

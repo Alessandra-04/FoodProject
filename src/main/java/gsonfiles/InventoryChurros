@@ -2,7 +2,7 @@
     "churros": [
     {
         "productId": 1234567891234,
-  "name": "Leche Gloria",
+  "name": "Leche",
   "description": "Leche sin lactosa",
   "standardCost": 4,
   "stock": 2,

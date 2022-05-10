@@ -1,0 +1,20 @@
+{
+    "orders": [
+    {
+        "productId": 5892457689989,
+  "customerId": 74079988,
+  "totalPrice": 23,
+  "status": "pending",
+  "assignedEmployee":"po",
+  "date": 13/06/12
+  },
+  {
+   "productId": 7573806435688,
+   "customerId": 74079988,
+   "totalPrice": 23,
+   "status": "completed",
+   "assignedEmployee": "lala" ,
+   "date": 13/06/12
+        }
+    ]
+}
