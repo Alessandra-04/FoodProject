@@ -1,20 +1,17 @@
 {
-    "churros": [
     {
-        "productId": 1234567891234,
+  "productId": 1234567891234,
   "name": "Leche",
   "description": "Leche sin lactosa",
   "standardCost": 4,
-  "stock": 2,
   "supplier": "Gloria",
   "category": "Liquidos"
   },
   {
- "productId": 1234567891235,
+  "productId": 1234567891235,
   "name": "Aceite",
   "description": "Aceite de olivo",
   "standardCost": 10,
-  "stock": 1,
   "supplier": "Tottus",
   "category": "Liquidos"
         }

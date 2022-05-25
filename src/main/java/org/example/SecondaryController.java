@@ -1,13 +1,15 @@
 package org.example;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
@@ -19,8 +21,9 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
@@ -28,74 +31,41 @@ import javafx.stage.Stage;
 
 public class SecondaryController implements Initializable {
 
-    @FXML
-    private Button btnCustomers;
-
-    @FXML
-    private Button btnEmployees;
-
-    @FXML
-    private Button btnInventory;
-
-    @FXML
-    private Button btnLogout;
-
-    @FXML
-    private Button btnOrders;
-
-    @FXML
-    private Button btnOverview;
-
-    @FXML
-    private Button btnProducts;
-
-    @FXML
-    private Pane pnlTitle;
-
-    @FXML
-    private Label lblTitleUnit;
+    @FXML private Button btnCustomers;
+    @FXML private Button btnEmployees;
+    @FXML private Button btnInventory;
+    @FXML private Button btnLogout;
+    @FXML private Button btnOrders;
+    @FXML private Button btnOverview;
+    @FXML private Button btnProducts;
+    @FXML private Pane pnlTitle;
+    @FXML private Label lblTitleUnit;
 
     // grid panes
 
-    @FXML
-    private GridPane pnlCustomers;
-
-    @FXML
-    private GridPane pnlEmployees;
-
-    @FXML
-    private GridPane pnlInventory;
-
-    @FXML
-    private GridPane pnlOrders;
-
-    @FXML
-    private GridPane pnlOverview;
-
-    @FXML
-    private GridPane pnlProducts;
+    @FXML private GridPane pnlCustomers;
+    @FXML private GridPane pnlEmployees;
+    @FXML private GridPane pnlInventory;
+    @FXML private GridPane pnlOrders;
+    @FXML private GridPane pnlOverview;
+    @FXML private GridPane pnlProducts;
 
     // BUTTONS
 
     // Buttons in the panel of Orders
-    @FXML
-    private Button btnOrdersAddOrder;
+    @FXML private Button btnOrdersAddOrder;
 
     // Buttons in the panel of Inventory
-    @FXML
-    private Button btnInventoryExpenses, btnInventoryShoppingList, btnInventoryAddItem;
+    @FXML private Button btnInventoryExpenses, btnInventoryShoppingList, btnInventoryAddItem;
 
     // Buttons in the panel of Products
-    @FXML
-    private Button btnProductsRecipe, btnProductsAddProduct;
+    @FXML private Button btnProductsRecipe, btnProductsAddProduct;
 
     // Button in the panel of Customer
-    @FXML
-    private Button btnCustomerAddCustomer;
+    @FXML private Button btnCustomerAddCustomer;
 
     // Button in the panel of Employees
-    @FXML
-    private Button btnEmployeesAddEmployee;
+    @FXML private Button btnEmployeesAddEmployee;
 
 
     @Override
@@ -113,13 +83,12 @@ public class SecondaryController implements Initializable {
             lblTitleUnit.setText("ORDERS");
             pnlTitle.setBackground(new Background(new BackgroundFill(Color.rgb(157, 255, 232), CornerRadii.EMPTY, Insets.EMPTY)));
             pnlOrders.toFront();
-            initialize();
 
         } else if (event.getSource() == btnInventory) {
             lblTitleUnit.setText("INVENTORY");
             pnlTitle.setBackground(new Background(new BackgroundFill(Color.rgb(85, 168, 254), CornerRadii.EMPTY, Insets.EMPTY)));
             pnlInventory.toFront();
-            initialize();
+
 
         } else if (event.getSource() == btnProducts) {
             lblTitleUnit.setText("PRODUCTS");
@@ -137,27 +106,137 @@ public class SecondaryController implements Initializable {
             pnlEmployees.toFront();
         }
     }
-
-    public void switchToPrimary(ActionEvent actionEvent) {
+    public void switchToPrimary(ActionEvent actionEvent) throws IOException {
+        App.setRoot("primary");
     }
+
+    //ORDERS TABLE
+
+    public TextField oProdId;
+    public TextField oCusId;
+    public TextField oDescrip;
+    public TextField oTotPr;
+    public TextField oAssEm;
+    public TextField oStatus;
+    public TextField oDate;
+
+    public TableView ordersTable;
+    public TableColumn<NewOrder, String> prodId = new TableColumn<>("Prod. Id");
 
     // JSON file of Inventory Churros (items)
 
-   ObservableList<ChurrosItems> churros =  FXCollections.observableArrayList();
-    public void initialize() throws FileNotFoundException {
-        Gson gson = new Gson();
+    public void initialize() {
 
-        JsonElement json = gson.fromJson(new FileReader("C:\\Users\\aless\\IdeaProjects\\FoodProject\\src\\main\\java\\gsonfiles\\InventoryChurros"), JsonElement.class);
-      //  System.out.println(gson.toJson(json));
+        loadNewOrders();
 
-        churros = gson.fromJson(json, ChurrosItems.class);
-    // json file Inventory Cookies (items
+        itemId.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("Id"));
 
-        for (ChurrosItems c: churros) {
+        ordersTable.getColumns().add(prodId);
+        ordersTable.setItems(App.newOrders);
 
-        }
-        System.out.println(churros.toString());
+        churroItemsTable.setRowFactory(rowClick -> {
+            TableRow<NewOrder> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    NewOrder clickedRow = row.getItem();
+                    oProdId.setText(Long.toString(clickedRow.getProductIdOrder()));
+                    oCusId.setText(Long.toString(clickedRow.getCustomerId()));
+                    oDescrip.setText(clickedRow.getDescriptionOfOrder());
+                    oTotPr.setText(Double.toString(clickedRow.getTotalPrice()));
+                    oAssEm.setText(clickedRow.getAssignedEmployee());
+                    oStatus.setText(clickedRow.getStatus());
+                    oDate.setText(Integer.toString(clickedRow.getDate()));
+                }
+            });
+            return row;
+        });
     }
+
+    public void loadNewOrders() {
+
+        Gson gson = new Gson();
+        try (Reader reader = new FileReader("newOrderJson.Json")) {
+            ArrayList<NewOrder> imports = gson.fromJson(reader, new TypeToken<ArrayList<FoodItem>>() {
+            }.getType());
+            App.newOrders = FXCollections.observableArrayList(imports);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // INVENTORY TABLE
+
+    public TextField cProdId;
+    public TextField cName;
+    public TextField cDescrip;
+    public TextField cStandCost;
+    public TextField cStock;
+    public TextField cSupplier;
+    public TextField cCatg;
+
+    public TableView churroItemsTable;
+    public TableColumn<FoodItem, String> itemId = new TableColumn<>("Item Id");
+
+    // JSON file of Inventory Churros (items)
+
+    public void initialize() {
+
+        loadChurroItems();
+
+        itemId.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("Id"));
+
+        churroItemsTable.getColumns().add(itemId);
+        churroItemsTable.setItems(App.foodItems);
+
+        churroItemsTable.setRowFactory(rowClick -> {
+            TableRow<FoodItem> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    FoodItem clickedRow = row.getItem();
+                    cProdId.setText(Long.toString(clickedRow.getProductId()));
+                    cName.setText(clickedRow.getName());
+                    cDescrip.setText(clickedRow.getDescription());
+                    cStandCost.setText(Double.toString(clickedRow.getStandardCost()));
+                    cStock.setText(Integer.toString(clickedRow.getStock()));
+                    cSupplier.setText(clickedRow.getSupplier());
+                    cCatg.setText(clickedRow.getCategory());
+                }
+            });
+            return row;
+        });
+    }
+
+    public void loadChurroItems() {
+
+        Gson gson = new Gson();
+        try (Reader reader = new FileReader("foodItemsJson.Json")) {
+            ArrayList<FoodItem> imports = gson.fromJson(reader, new TypeToken<ArrayList<FoodItem>>() {
+            }.getType());
+            App.foodItems = FXCollections.observableArrayList(imports);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 2.2 Expenses
+
+    // 2.3 Shopping List
+
+
+
+    // to do: find ways to tell the user to correct the format they used to write (verification)
+
+
+    // PRODUCTS TABLE
+
+
+    // CUSTOMERS TABLE
+
+
+    // EMPLOYEES TABLE
+
+
 
     // Orders Division
 
@@ -166,11 +245,12 @@ public class SecondaryController implements Initializable {
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnOrdersAddOrder.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
+        stage.setTitle("Add a new Order");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
         stage.show();
+        initialize();
     }
 
     // Inventory Division
@@ -180,7 +260,7 @@ public class SecondaryController implements Initializable {
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnInventoryExpenses.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
+        stage.setTitle("Check the Expenses");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
@@ -192,7 +272,7 @@ public class SecondaryController implements Initializable {
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnInventoryShoppingList.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
+        stage.setTitle("Your Shopping List");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
@@ -204,11 +284,13 @@ public class SecondaryController implements Initializable {
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnInventoryAddItem.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
+        stage.setTitle("Add new Item");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
         stage.show();
+        initialize();
+
     }
 
     // Products Division
@@ -218,7 +300,7 @@ public class SecondaryController implements Initializable {
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnProductsRecipe.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
+        stage.setTitle("Accesses the Recipe");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
@@ -230,7 +312,7 @@ public class SecondaryController implements Initializable {
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnProductsRecipe.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
+        stage.setTitle("Add new Product");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
@@ -244,7 +326,7 @@ public class SecondaryController implements Initializable {
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnCustomerAddCustomer.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
+        stage.setTitle("Add new Customer");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
@@ -258,7 +340,7 @@ public class SecondaryController implements Initializable {
         Parent root = FXMLLoader.load(
                 SecondaryController.class.getResource("btnEmployeesAddEmployee.fxml"));
         stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
+        stage.setTitle("Add new Employee");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
