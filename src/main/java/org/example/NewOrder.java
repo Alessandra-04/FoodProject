@@ -1,5 +1,8 @@
 package org.example;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class NewOrder {
 
     public long productIdOrder;
@@ -8,10 +11,10 @@ public class NewOrder {
     public double totalPrice;
     public String assignedEmployee;
     public String status;
-    public int date;
+    public Date date;
 
 
-    public NewOrder (long productIdOrder, long customerId, String descriptionOfOrder, double totalPrice, String assignedEmployee, String status, int date) {
+    public NewOrder (long productIdOrder, long customerId, String descriptionOfOrder, double totalPrice, String assignedEmployee, String status, Date date) {
         this.productIdOrder = productIdOrder;
         this.customerId = customerId;
         this.descriptionOfOrder = descriptionOfOrder;
@@ -69,11 +72,11 @@ public class NewOrder {
         this.status = status;
     }
 
-    public int getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

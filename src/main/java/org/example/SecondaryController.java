@@ -4,6 +4,7 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.google.gson.Gson;
@@ -198,20 +199,21 @@ public class SecondaryController implements Initializable {
 
         loadNewOrders();
 
-        orProductIds.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("Prod. Ids"));
-        orCusId.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("Cust. Id"));
-        orDescription.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("Description"));
-        orTotalPrice.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("Total Price"));
-        orAssignedEmp.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("Assign. Employee"));
-        orStatus.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("Status"));
-        orDate.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("Date"));
+        orProductIds.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("productIdOrder"));
+        orCusId.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("customerId"));
+        orDescription.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("descriptionOfOrder"));
+        orTotalPrice.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("totalPrice"));
+        orAssignedEmp.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("assignedEmployee"));
+        orStatus.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("status"));
+        orDate.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("date"));
 
         ordersTable.getColumns().add(orProductIds);
-        ordersTable.getColumns().add(orProductIds);
-        ordersTable.getColumns().add(orProductIds);
-        ordersTable.getColumns().add(orProductIds);
-        ordersTable.getColumns().add(orProductIds);
-
+        ordersTable.getColumns().add(orCusId);
+        ordersTable.getColumns().add(orDescription);
+        ordersTable.getColumns().add(orTotalPrice);
+        ordersTable.getColumns().add(orAssignedEmp);
+        ordersTable.getColumns().add(orStatus);
+        ordersTable.getColumns().add(orDate);
 
         ordersTable.setItems(App.newOrders);
 
@@ -226,7 +228,7 @@ public class SecondaryController implements Initializable {
                     oTotPr.setText(Double.toString(clickedRow.getTotalPrice()));
                     oAssEm.setText(clickedRow.getAssignedEmployee());
                     oStatus.setText(clickedRow.getStatus());
-                    oDate.setText(Integer.toString(clickedRow.getDate()));
+                    oDate.setText(String.valueOf(clickedRow.getDate()));
                 }
             });
             return row;
@@ -234,13 +236,13 @@ public class SecondaryController implements Initializable {
 
         loadChurroItems();
 
-        itemId.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("Id"));
-        itemName.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("Name"));
-        itemDescrip.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("Description"));
-        itemStnCost.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("Standard Cost"));
-        itemStock.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("Stock"));
-        itemSupp.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("Supplier"));
-        itemCat.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("Category"));
+        itemId.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("productId"));
+        itemName.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("name"));
+        itemDescrip.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("description"));
+        itemStnCost.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("standardCost"));
+        itemStock.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("stock"));
+        itemSupp.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("supplier"));
+        itemCat.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("category"));
 
         churroItemsTable.getColumns().add(itemId);
         churroItemsTable.getColumns().add(itemName);
@@ -272,12 +274,12 @@ public class SecondaryController implements Initializable {
 
         loadCustomerData();
 
-        cusId.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("Id"));
-        cusName.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("Name"));
-        cusDescription.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("Description"));
-        cusContact.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("Contact"));
-        cusDateOfPur.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("Date of Purchase"));
-        cusReview.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("Review"));
+        cusId.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("customerIdCs"));
+        cusName.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("customerName"));
+        cusDescription.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("descriptionOfOrderCustomer"));
+        cusContact.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("contact"));
+        cusDateOfPur.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("dateOfPurchase"));
+        cusReview.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("review"));
 
 
         customerTable.getColumns().add(cusId);
@@ -308,12 +310,12 @@ public class SecondaryController implements Initializable {
 
         loadEmployeeData();
 
-        empId.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("Emp. Id"));
-        empName.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("Name"));
-        empShift.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("Shift"));
-        empOrdAssigned.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("Order Assigned"));
-        empSrtContract.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("Start Contract"));
-        empFinContract.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("Finish Contract"));
+        empId.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("employeeId"));
+        empName.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("employeeName"));
+        empShift.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("shift"));
+        empOrdAssigned.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("ordersAssigned"));
+        empSrtContract.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("startContract"));
+        empFinContract.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("finishContract"));
 
         employeeTable.getColumns().add(empId);
         employeeTable.getColumns().add(empName);
@@ -367,6 +369,10 @@ public class SecondaryController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        for (FoodItem i: App.foodItems
+             ) {
+            System.out.println(i);
+        }
     }
 
     public static void loadCustomerData() {
@@ -407,7 +413,7 @@ public class SecondaryController implements Initializable {
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
         stage.show();
-        initialize();
+
     }
 
     // Inventory Division
@@ -422,7 +428,6 @@ public class SecondaryController implements Initializable {
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
         stage.show();
-        initialize();
     }
 
     public void handleBtnShoppingList(ActionEvent actionEvent) throws IOException {
@@ -447,7 +452,6 @@ public class SecondaryController implements Initializable {
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
         stage.show();
-        initialize();
 
     }
 
@@ -489,7 +493,6 @@ public class SecondaryController implements Initializable {
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
         stage.show();
-        initialize();
     }
 
     // Employees Division
@@ -504,8 +507,6 @@ public class SecondaryController implements Initializable {
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());
         stage.show();
-        initialize();
-
     }
 
     @Override
