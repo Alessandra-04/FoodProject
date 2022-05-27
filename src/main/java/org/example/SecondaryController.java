@@ -507,4 +507,9 @@ public class SecondaryController implements Initializable {
         initialize();
 
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
