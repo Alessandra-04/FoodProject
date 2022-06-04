@@ -1,15 +1,17 @@
 package org.example;
 
+import java.util.Date;
+
 public class NewCustomer {
 
     public long customerIdCs;
     public String customerName;
     public String descriptionOfOrderCustomer;
     public long contact;
-    public int dateOfPurchase;
+    public Date dateOfPurchase;
     public String review;
 
-    public NewCustomer (long customerIdCs, String customerName, String descriptionOfOrderCustomer, long contact, int dateOfPurchase, String review) {
+    public NewCustomer (long customerIdCs, String customerName, String descriptionOfOrderCustomer, long contact, Date dateOfPurchase, String review) {
         this.customerIdCs = customerIdCs;
         this.customerName = customerName;
         this.descriptionOfOrderCustomer = descriptionOfOrderCustomer;
@@ -50,11 +52,11 @@ public class NewCustomer {
         this.contact = contact;
     }
 
-    public int getDateOfPurchase() {
+    public Date getDateOfPurchase() {
         return dateOfPurchase;
     }
 
-    public void setDateOfPurchase(int dateOfPurchase) {
+    public void setDateOfPurchase(Date dateOfPurchase) {
         this.dateOfPurchase = dateOfPurchase;
     }
 

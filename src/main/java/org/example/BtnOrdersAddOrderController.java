@@ -25,6 +25,7 @@ public class BtnOrdersAddOrderController {
     public static TextField oAssEm;
     public static TextField oStatus;
     public static DatePicker oDate;
+    public Button btnOrdersAddSave;
 
     public void switchToSecondary(ActionEvent actionEvent) {
         //This button saves the new object and switches to secondary screen

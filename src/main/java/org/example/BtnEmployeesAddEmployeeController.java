@@ -4,10 +4,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 public class BtnEmployeesAddEmployeeController {
 
@@ -15,11 +21,12 @@ public class BtnEmployeesAddEmployeeController {
     public static TextField eName;
     public static TextField eShift;
     public static TextField eOrdAssign;
-    public static TextField eSrtCon;
-    public static TextField eFinCon;
+    public static DatePicker eSrtCon;
+    public static DatePicker eFinCon;
+    public Button btnNewEmployeeSave;
 
     public void switchToSecondary(ActionEvent actionEvent) {
-        Boolean exists = false;
+        boolean exists = false;
         for(NewEmployee f:App.newEmployees){
             if (f.getEmployeeId() == (Integer.parseInt(eId.getText()))) {
                 exists = true;
@@ -27,7 +34,15 @@ public class BtnEmployeesAddEmployeeController {
             }
         }
         if(exists == false){
-            App.newEmployees.add(new NewEmployee(Long.parseLong(eId.getText()), eName.getText(), eShift.getText(), eOrdAssign.getText(), Integer.parseInt(eSrtCon.getText()), Integer.parseInt(eFinCon.getText())));
+            System.out.println(eSrtCon.getValue());
+            LocalDate localDate = eSrtCon.getValue();
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date dateSrt = Date.from(instant);
+            System.out.println(eFinCon.getValue());
+            localDate = eFinCon.getValue();
+            instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date dateFin = Date.from(instant);
+            App.newEmployees.add(new NewEmployee(Long.parseLong(eId.getText()), eName.getText(), eShift.getText(), eOrdAssign.getText(), dateSrt, dateFin));
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

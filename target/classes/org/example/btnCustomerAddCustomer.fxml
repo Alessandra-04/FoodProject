@@ -19,7 +19,7 @@
       <TextField fx:id="csName" layoutX="143.0" layoutY="71.0" />
       <TextField fx:id="csContact" layoutX="143.0" layoutY="103.0" />
       <DatePicker fx:id="csDateOfPur" layoutX="62.0" layoutY="170.0" />
-      <TextArea fx:id="csDescrip" layoutX="308.0" layoutY="70.0" prefHeight="153.0" prefWidth="160.0" />
+      <TextArea fx:id="csDescription" layoutX="308.0" layoutY="70.0" prefHeight="153.0" prefWidth="160.0" />
       <Button fx:id="btnSaveAddCustomer" layoutX="427.0" layoutY="268.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Save" />
       <TextField fx:id="csReview" layoutX="62.0" layoutY="243.0" prefHeight="25.0" prefWidth="228.0" />
    </children>

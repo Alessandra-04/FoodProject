@@ -1,15 +1,17 @@
 package org.example;
 
+import java.util.Date;
+
 public class NewEmployee {
 
     public long employeeId;
     public String employeeName;
     public String shift;
     public String ordersAssigned;
-    public int startContract;
-    public int finishContract;
+    public Date startContract;
+    public Date finishContract;
 
-    public NewEmployee (long employeeId, String employeeName, String shift, String ordersAssigned, int startContract, int finishContract) {
+    public NewEmployee (long employeeId, String employeeName, String shift, String ordersAssigned, Date startContract, Date finishContract) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.shift = shift;
@@ -51,20 +53,20 @@ public class NewEmployee {
         this.ordersAssigned = ordersAssigned;
     }
 
-    public int getStartContract() {
+    public Date getStartContract() {
         return startContract;
     }
 
-    public void setStartContract(int startContract) {
-        this.startContract = startContract;
+    public void setStartContract(Date dateSrt) {
+        this.startContract = dateSrt;
     }
 
-    public int getFinishContract() {
+    public Date getFinishContract() {
         return finishContract;
     }
 
-    public void setFinishContract(int finishContract) {
-        this.finishContract = finishContract;
+    public void setFinishContract(Date dateFin) {
+        this.finishContract = dateFin;
     }
 
 }

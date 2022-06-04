@@ -337,15 +337,7 @@
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <TableView fx:id="churroItemsTable" layoutY="59.0" prefHeight="333.0" prefWidth="526.0">
-                                      <columns>
-                                        <TableColumn prefWidth="75.0" text="Product ID" />
-                                        <TableColumn prefWidth="75.0" text=" Name" />
-                                          <TableColumn prefWidth="75.0" text="Description" />
-                                          <TableColumn prefWidth="107.0" text="Stndrd cost" />
-                                          <TableColumn prefWidth="75.0" text="Stock" />
-                                          <TableColumn prefWidth="75.0" text="Category" />
-                                          <TableColumn prefWidth="75.0" text="Supplier" />
-                                      </columns>
+
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                        </columnResizePolicy>

@@ -21,6 +21,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class BtnInventoryExpensesController {
+    public Button btnScanReciept;
+    public Button btnSave;
+
     public void goInventory(ActionEvent actionEvent) {
     }
 

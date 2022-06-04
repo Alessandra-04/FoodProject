@@ -4,19 +4,27 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 public class BtnCustomerAddCustomerController {
 
     public static TextField csCusId;
     public static TextField csName;
-    public static TextField csDescrip;
     public static TextField csContact;
-    public static TextField csDateOfPur;
+    public static DatePicker csDateOfPur;
     public static TextField csReview;
+    public Button btnSaveAddCustomer;
+    public TextArea csDescription;
 
     public void switchToSecondary(ActionEvent actionEvent) {
         Boolean exists = false;
@@ -27,7 +35,11 @@ public class BtnCustomerAddCustomerController {
             }
         }
         if(exists == false){
-            App.newCustomers.add(new NewCustomer(Long.parseLong(csCusId.getText()), csName.getText(), csDescrip.getText(), Long.parseLong(csContact.getText()), Integer.parseInt(csDateOfPur.getText()), csReview.getText()));
+            System.out.println(csDateOfPur.getValue());
+            LocalDate localDate = csDateOfPur.getValue();
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date datePur = Date.from(instant);
+            App.newCustomers.add(new NewCustomer(Long.parseLong(csCusId.getText()), csName.getText(), csDescription.getText(), Long.parseLong(csContact.getText()), datePur, csReview.getText()));
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
