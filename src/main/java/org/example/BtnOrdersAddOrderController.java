@@ -18,13 +18,13 @@ import java.util.Date;
 
 public class BtnOrdersAddOrderController {
 
-    public static TextField oProdId;
-    public static TextField oCusId;
-    public static TextArea oDescrip;
-    public static TextField oTotPr;
-    public static TextField oAssEm;
-    public static TextField oStatus;
-    public static DatePicker oDate;
+    public TextField oProdId;
+    public TextField oCusId;
+    public TextArea oDescrip;
+    public TextField oTotPr;
+    public TextField oAssEm;
+    public TextField oStatus;
+    public DatePicker oDate;
     public Button btnOrdersAddSave;
 
     public void switchToSecondary(ActionEvent actionEvent) {

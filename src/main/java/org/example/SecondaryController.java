@@ -119,73 +119,73 @@ public class SecondaryController {
 
     //ORDERS TABLE
 
-    public static TextField oProdId;
-    public static TextField oCusId;
-    public static TextField oDescrip;
-    public static TextField oTotPr;
-    public static TextField oAssEm;
-    public static TextField oStatus;
-    public static TextField oDate;
-    public static TableView ordersTable;
-    public static TableColumn<NewOrder, Long> orProductIds = new TableColumn("Prod. Ids");
-    public static TableColumn<NewOrder, Long> orCusId = new TableColumn<>("Customer Id");
-    public static TableColumn<NewOrder, String> orDescription = new TableColumn<>("Description");
-    public static TableColumn<NewOrder, Double> orTotalPrice = new TableColumn<>("Total Price");
-    public static TableColumn<NewOrder, String> orAssignedEmp = new TableColumn<>("Assign. Employee");
-    public static TableColumn<NewOrder, String> orStatus = new TableColumn<>("Status");
-    public static TableColumn<NewOrder, Date> orDate = new TableColumn<>("Date");
+    public TextField oProdId;
+    public TextField oCusId;
+    public TextArea oDescrip;
+    public TextField oTotPr;
+    public TextField oAssEm;
+    public TextField oStatus;
+    public TextField oDate;
+    public TableView ordersTable;
+    public TableColumn<NewOrder, Long> orProductIds = new TableColumn("Product Ids");
+    public TableColumn<NewOrder, Long> orCusId = new TableColumn<>("Customer Id");
+    public TableColumn<NewOrder, String> orDescription = new TableColumn<>("Description");
+    public TableColumn<NewOrder, Double> orTotalPrice = new TableColumn<>("Total Price");
+    public TableColumn<NewOrder, String> orAssignedEmp = new TableColumn<>("Assigned Employee");
+    public TableColumn<NewOrder, String> orStatus = new TableColumn<>("Status");
+    public TableColumn<NewOrder, Date> orDate = new TableColumn<>("Date");
 
 
     // INVENTORY TABLE (example)
 
     // 1#
-    public static TextField cProdId;
-    public static TextField cName;
-    public static TextField cDescrip;
-    public static TextField cStandCost;
-    public static TextField cStock;
-    public static TextField cSupplier;
-    public static TextField cCatg;
-    public static TableView churroItemsTable;
-    public static TableColumn<FoodItem, Long> itemId = new TableColumn<>("Item. Id");
-    public static TableColumn<FoodItem, String> itemName = new TableColumn<>("Name");
-    public static TableColumn<FoodItem, String> itemDescrip = new TableColumn<>("Description");
-    public static TableColumn<FoodItem, Double> itemStnCost = new TableColumn<>("Standard Cost");
-    public static TableColumn<FoodItem, Integer> itemStock = new TableColumn<>("Stock");
-    public static TableColumn<FoodItem, String> itemSupp = new TableColumn<>("Supplier");
-    public static TableColumn<FoodItem, String> itemCat = new TableColumn<>("Category");
+    public TextField cProdId;
+    public TextField cName;
+    public TextArea cDescrip;
+    public TextField cStandCost;
+    public TextField cStock;
+    public TextField cSupplier;
+    public TextField cCatg;
+    public TableView churroItemsTable;
+    public TableColumn<FoodItem, Long> itemId = new TableColumn<>("Item. Id");
+    public TableColumn<FoodItem, String> itemName = new TableColumn<>("Name");
+    public TableColumn<FoodItem, String> itemDescrip = new TableColumn<>("Description");
+    public TableColumn<FoodItem, Double> itemStnCost = new TableColumn<>("Standard Cost");
+    public TableColumn<FoodItem, Integer> itemStock = new TableColumn<>("Stock");
+    public TableColumn<FoodItem, String> itemSupp = new TableColumn<>("Supplier");
+    public TableColumn<FoodItem, String> itemCat = new TableColumn<>("Category");
 
     //PRODUCTS
 
     //CUSTOMERS
-    public static TextField csCusId;
-    public static TextField csName;
-    public static TextField csDescrip;
-    public static TextField csContact;
-    public static TextField csDateOfPur;
-    public static TextField csReview;
-    public static TableView customerTable;
-    public static TableColumn<NewCustomer, Long> cusId = new TableColumn<>("Customer. Id");
-    public static TableColumn<NewCustomer, String> cusName = new TableColumn<>("Name");
-    public static TableColumn<NewCustomer, String> cusDescription = new TableColumn<>("Description");
-    public static TableColumn<NewCustomer, Long> cusContact = new TableColumn<>("Contact");
-    public static TableColumn<NewCustomer, Date> cusDateOfPur = new TableColumn<>("Date of Purchase");
-    public static TableColumn<NewCustomer, String> cusReview = new TableColumn<>("Customer Review");
+    public TextField csCusId;
+    public TextField csName;
+    public TextArea csDescrip;
+    public TextField csContact;
+    public TextField csDateOfPur;
+    public TextField csReview;
+    public TableView customerTable;
+    public TableColumn<NewCustomer, Long> cusId = new TableColumn<>("Customer. Id");
+    public TableColumn<NewCustomer, String> cusName = new TableColumn<>("Name");
+    public TableColumn<NewCustomer, String> cusDescription = new TableColumn<>("Description");
+    public TableColumn<NewCustomer, Long> cusContact = new TableColumn<>("Contact");
+    public TableColumn<NewCustomer, Date> cusDateOfPur = new TableColumn<>("Date of Purchase");
+    public TableColumn<NewCustomer, String> cusReview = new TableColumn<>("Customer Review");
 
     // EMPLOYEES
-    public static TextField eId;
-    public static TextField eName;
-    public static TextField eShift;
-    public static TextField eOrdAssign;
-    public static TextField eSrtCon;
-    public static TextField eFinCon;
-    public static TableView employeeTable;
-    public static TableColumn<NewEmployee, Long> empId = new TableColumn<>("Emp. Id");
-    public static TableColumn<NewEmployee, String> empName = new TableColumn<>("Name");
-    public static TableColumn<NewEmployee, String> empShift = new TableColumn<>("Shift");
-    public static TableColumn<NewEmployee, String> empOrdAssigned = new TableColumn<>("Order Assigned");
-    public static TableColumn<NewEmployee, Date> empSrtContract = new TableColumn<>("Start Contract");
-    public static TableColumn<NewEmployee, Date> empFinContract = new TableColumn<>("Finish Contract");
+    public TextField eId;
+    public TextField eName;
+    public TextField eShift;
+    public TextField eOrdAssign;
+    public TextField eSrtCon;
+    public TextField eFinCon;
+    public TableView employeeTable;
+    public TableColumn<NewEmployee, Long> empId = new TableColumn<>("Emp. Id");
+    public TableColumn<NewEmployee, String> empName = new TableColumn<>("Name");
+    public TableColumn<NewEmployee, String> empShift = new TableColumn<>("Shift");
+    public TableColumn<NewEmployee, String> empOrdAssigned = new TableColumn<>("Order Assigned");
+    public TableColumn<NewEmployee, Date> empSrtContract = new TableColumn<>("Start Contract");
+    public TableColumn<NewEmployee, Date> empFinContract = new TableColumn<>("Finish Contract");
 
     // ORDERS
     public void initialize() {

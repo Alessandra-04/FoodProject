@@ -17,12 +17,12 @@ import java.util.Date;
 
 public class BtnEmployeesAddEmployeeController {
 
-    public static TextField eId;
-    public static TextField eName;
-    public static TextField eShift;
-    public static TextField eOrdAssign;
-    public static DatePicker eSrtCon;
-    public static DatePicker eFinCon;
+    public TextField eId;
+    public TextField eName;
+    public TextField eShift;
+    public TextField eOrdAssign;
+    public DatePicker eSrtCon;
+    public DatePicker eFinCon;
     public Button btnNewEmployeeSave;
 
     public void switchToSecondary(ActionEvent actionEvent) {

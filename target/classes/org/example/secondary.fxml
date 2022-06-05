@@ -266,7 +266,7 @@
                   <RowConstraints maxHeight="401.6666717529297" minHeight="10.0" prefHeight="396.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView prefHeight="382.0" prefWidth="526.0" GridPane.rowIndex="1">
+                  <TableView fx:id="customerTable" prefHeight="382.0" prefWidth="526.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn prefWidth="75.0" text="CustomerID" />
                       <TableColumn prefWidth="75.0" text="Name" />
@@ -298,7 +298,7 @@
                   <RowConstraints maxHeight="403.0" minHeight="10.0" prefHeight="403.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="526.0" GridPane.rowIndex="1">
+                  <TableView fx:id="employeeTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="526.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn prefWidth="77.0" text="Employee ID" />
                       <TableColumn prefWidth="53.0" text="Name" />

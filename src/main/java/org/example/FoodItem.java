@@ -2,13 +2,13 @@ package org.example;
 
 public class FoodItem {
 
-        public long productId;
-        public String name;
-        public String description;
-        public double standardCost;
-        public int stock;
-        public String supplier;
-        public String category;
+    public long productId;
+    public String name;
+    public String description;
+    public double standardCost;
+    public int stock;
+    public String supplier;
+    public String category;
 
 
     public FoodItem(long productId, String name, String description, double standardCost, int stock, String supplier, String category) {

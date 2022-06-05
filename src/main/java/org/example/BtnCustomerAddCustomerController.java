@@ -18,11 +18,11 @@ import java.util.Date;
 
 public class BtnCustomerAddCustomerController {
 
-    public static TextField csCusId;
-    public static TextField csName;
-    public static TextField csContact;
-    public static DatePicker csDateOfPur;
-    public static TextField csReview;
+    public TextField csCusId;
+    public TextField csName;
+    public TextField csContact;
+    public DatePicker csDateOfPur;
+    public TextField csReview;
     public Button btnSaveAddCustomer;
     public TextArea csDescription;
 
