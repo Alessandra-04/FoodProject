@@ -157,6 +157,18 @@ public class SecondaryController {
 
     //PRODUCTS
 
+    public TextField pProdId;
+    public TextField pCategory;
+    public TextField pDateMade;
+    public TextField pExpDate;
+    public TextField pAmtProduced;
+    public TableView productsChurroTable;
+    public TableColumn<AddProduct, Long> prodId = new TableColumn<>("Prod. Id");
+    public TableColumn<AddProduct, String> prodCategory = new TableColumn<>("Category");
+    public TableColumn<AddProduct, Date> prodDateMade = new TableColumn<>("Date Made");
+    public TableColumn<AddProduct, Date> prodExpirationDate = new TableColumn<>("Expiration Date");
+    public TableColumn<AddProduct, Integer> prodAmountProduced = new TableColumn<>("Amount Produced");
+
     //CUSTOMERS
     public TextField csCusId;
     public TextField csName;
@@ -222,6 +234,38 @@ public class SecondaryController {
                     oAssEm.setText(clickedRow.getAssignedEmployee());
                     oStatus.setText(clickedRow.getStatus());
                     oDate.setText(String.valueOf(clickedRow.getDate()));
+                }
+            });
+            return row;
+        });
+
+        loadProductData();
+
+        pProdId.setCellValueFactory(new PropertyValueFactory<AddProduct, Long>("prodProductId"));
+        pCategory.setCellValueFactory(new PropertyValueFactory<AddProduct, String>("productCategory"));
+        pDateMade.setCellValueFactory(new PropertyValueFactory<AddProduct, Date>("description"));
+        pExpDate.setCellValueFactory(new PropertyValueFactory<AddProduct, Date>("standardCost"));
+        pAmtProduced.setCellValueFactory(new PropertyValueFactory<AddProduct, Integer>("stock"));
+
+        productsChurroTable.getColumns().add(prodId);
+        productsChurroTable.getColumns().add(prodCategory);
+        productsChurroTable.getColumns().add(prodDateMade);
+        productsChurroTable.getColumns().add(prodExpirationDate);
+        productsChurroTable.getColumns().add(prodAmountProduced);
+
+
+        productsChurroTable.setItems(App.addProducts);
+
+        productsChurroTable.setRowFactory(rowClick -> {
+            TableRow<AddProduct> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    AddProduct clickedRow = row.getItem();
+                    pProdId.setText(Long.toString(clickedRow.getProdProductId()));
+                    pCategory.setText(clickedRow.getProductCategory());
+                    pDateMade.setText(String.valueOf(clickedRow.getDateMade()));
+                    pExpDate.setText(String.valueOf(clickedRow.getDateExpired()));
+                    pAmtProduced.setText(Integer.toString(clickedRow.getAmountProduced()));
                 }
             });
             return row;
@@ -334,6 +378,8 @@ public class SecondaryController {
 
     }
 
+    
+
 
     public static void loadNewOrders() {
 
@@ -345,8 +391,11 @@ public class SecondaryController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        for (NewOrder i: App.newOrders
+            ){
+            System.out.println(i);
+        }
     }
-
 
     public static void loadChurroItems() {
 
@@ -364,6 +413,22 @@ public class SecondaryController {
         }
     }
 
+    public static void loadProductData() {
+
+        Gson gson = new Gson();
+        try (Reader reader = new FileReader("newProductJson.Json")) {
+            ArrayList<AddProduct> imports = gson.fromJson(reader, new TypeToken<ArrayList<AddProduct>>() {
+            }.getType());
+            App.addProducts = FXCollections.observableArrayList(imports);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (AddProduct i: App.addProducts
+        ) {
+            System.out.println(i);
+        }
+    }
+
     public static void loadCustomerData() {
 
         Gson gson = new Gson();
@@ -373,6 +438,10 @@ public class SecondaryController {
             App.newCustomers = FXCollections.observableArrayList(imports);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        for (NewCustomer i: App.newCustomers
+            ){
+            System.out.println(i);
         }
     }
 
@@ -385,6 +454,10 @@ public class SecondaryController {
             App.newOrders = FXCollections.observableArrayList(imports);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        for (NewEmployee i: App.newEmployees
+            ){
+            System.out.println(i);
         }
     }
 
@@ -461,7 +534,7 @@ public class SecondaryController {
     public void handleBtnAddProduct(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
-                SecondaryController.class.getResource("btnProductsRecipe.fxml"));
+                SecondaryController.class.getResource("btnProductsAddOrder.fxml"));
         stage.setScene(new Scene(root));
         stage.setTitle("Add new Product");
         stage.initModality(Modality.WINDOW_MODAL);

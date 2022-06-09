@@ -19,6 +19,8 @@ public class App extends Application {
     public static ObservableList<FoodItem> foodItems = FXCollections.observableArrayList();
     public static ObservableList<NewOrder> newOrders = FXCollections.observableArrayList();
 
+    public static ObservableList<AddProduct> addProducts = FXCollections.observableArrayList();
+
     public static ObservableList<NewCustomer> newCustomers = FXCollections.observableArrayList();
     public static ObservableList<NewEmployee> newEmployees = FXCollections.observableArrayList();
 

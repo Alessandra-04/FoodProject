@@ -19,9 +19,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="149.0" layoutY="23.0" mnemonicParsing="false" text="Print" />
-      <Button fx:id="btnScanReciept" layoutX="149.0" layoutY="273.0" mnemonicParsing="false" onAction="#goScanner" text="Scan Reciept" />
-      <Button layoutX="62.0" layoutY="273.0" mnemonicParsing="false" text="Completed" />
+      <Button fx:id="btnPrint" layoutX="149.0" layoutY="23.0" mnemonicParsing="false" text="Print" />
+      <Button fx:id="btnScanReciept" layoutX="149.0" layoutY="273.0" mnemonicParsing="false" text="Scan Reciept" />
+      <Button fx:id="btnCompleted" layoutX="62.0" layoutY="273.0" mnemonicParsing="false" text="Completed" />
       <Button fx:id="btnSave" layoutX="294.0" layoutY="273.0" mnemonicParsing="false" onAction="#goInventory" text="Save" />
    </children>
 </AnchorPane>
