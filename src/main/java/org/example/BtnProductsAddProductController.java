@@ -29,7 +29,7 @@ public class BtnProductsAddProductController {
         //This button saves the new object and switches to secondary screen
         Boolean exists = false;
         for(AddProduct f:App.addProducts){
-            if (f.getProductProd() == (Long.parseLong(pProdId.getText()))) {
+            if (f.getProdProductId() == (Long.parseLong(pProdId.getText()))) {
                 exists = true;
                 System.out.println("already exists.");
             }
@@ -46,11 +46,11 @@ public class BtnProductsAddProductController {
             instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
             Date dateExp = Date.from(instant);
 
-            App.addProducts.add(new AddProduct(Long.parseLong(pProdId.getText()), pCategory.getText(), dateMade, dateExp, (Integer.parseInt(pAmtProd.getText()));
+            App.addProducts.add(new AddProduct(Long.parseLong(pProdId.getText()), pCategory.getText(), dateMade, dateExp, (Integer.parseInt(pAmtProd.getText()))));
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try(FileWriter writer = new FileWriter("newOrderJson.Json")){
+        try(FileWriter writer = new FileWriter("newProductJson.Json")){
             gson.toJson(App.newOrders);
             System.out.println("Saved.");
         } catch(IOException e){

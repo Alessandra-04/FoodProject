@@ -13,11 +13,11 @@
       <Label layoutX="40.0" layoutY="113.0" text="Amount Produced" textFill="WHITE" />
       <Label layoutX="38.0" layoutY="160.0" text="Date Made" textFill="WHITE" />
       <Label layoutX="20.0" layoutY="200.0" prefHeight="17.0" prefWidth="88.0" text="Expiration Date" textFill="WHITE" />
-      <TextField layoutX="118.0" layoutY="36.0" />
-      <TextField layoutX="118.0" layoutY="70.0" />
-      <TextField layoutX="156.0" layoutY="111.0" prefHeight="25.0" prefWidth="111.0" />
-      <DatePicker layoutX="106.0" layoutY="156.0" />
-      <DatePicker layoutX="106.0" layoutY="196.0" />
+      <TextField fx:id="pProdId" layoutX="118.0" layoutY="36.0" />
+      <TextField fx:id="pCategory" layoutX="118.0" layoutY="70.0" />
+      <TextField fx:id="pAmtProd" layoutX="156.0" layoutY="111.0" prefHeight="25.0" prefWidth="111.0" />
+      <DatePicker fx:id="pDateMade" layoutX="106.0" layoutY="156.0" />
+      <DatePicker fx:id="pExpDate" layoutX="106.0" layoutY="196.0" />
       <Button fx:id="pBtnSave" layoutX="239.0" layoutY="246.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Save" />
    </children>
 </AnchorPane>

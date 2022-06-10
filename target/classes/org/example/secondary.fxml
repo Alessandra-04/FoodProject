@@ -174,57 +174,6 @@
                   </Button>
                </children>
             </GridPane>
-            <GridPane fx:id="pnlInventory" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="420.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="453.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <TabPane prefHeight="342.0" prefWidth="524.0" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab fx:id="tabChurros" text="Churros">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <TableView fx:id="churroItemsTable" layoutY="59.0" prefHeight="333.0" prefWidth="526.0">
-
-                                       <columnResizePolicy>
-                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                       </columnResizePolicy>
-                                    </TableView>
-                                    <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="127.0" />
-                                    <ComboBox layoutX="141.0" layoutY="20.0" prefHeight="25.0" prefWidth="65.0" />
-                                    <Button fx:id="btnInventoryAddItem" layoutX="294.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnAddItem" prefHeight="25.0" prefWidth="98.0" text="+Add Item" />
-                                    <Button fx:id="btnInventoryShoppingList" layoutX="402.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnShoppingList" prefHeight="25.0" prefWidth="110.0" text="+ Create Shopping List" />
-                                 </children>
-                              </AnchorPane>
-                        </content>
-                      </Tab>
-                        <Tab fx:id="tabChurros1" text="Ice Cream">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <TableView fx:id="iceCreamItemsTable" layoutY="59.0" prefHeight="333.0" prefWidth="526.0">
-                                       <columnResizePolicy>
-                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                       </columnResizePolicy>
-                                    </TableView>
-                                    <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="127.0" />
-                                    <ComboBox layoutX="141.0" layoutY="20.0" prefHeight="25.0" prefWidth="65.0" />
-                                    <Button fx:id="btnInventoryAddItemIc" layoutX="294.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnAddItem" prefHeight="25.0" prefWidth="98.0" text="+Add Item" />
-                                    <Button fx:id="btnInventoryShoppingListIc" layoutX="402.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnShoppingList" prefHeight="25.0" prefWidth="110.0" text="+ Create Shopping List" />
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </Tab>
-                    </tabs>
-                  </TabPane>
-                  <Button fx:id="btnInventoryExpenses" mnemonicParsing="false" onAction="#handleBtnExpenses" prefHeight="25.0" prefWidth="98.0" text="Expenses" GridPane.rowIndex="1" />
-               </children>
-            </GridPane>
             <GridPane fx:id="pnlOverview" prefHeight="448.0" prefWidth="526.0" style="-fx-background-color: #fff;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -315,6 +264,57 @@
                   </Button>
                </children>
             </GridPane>
+            <GridPane fx:id="pnlInventory" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="420.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="453.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TabPane prefHeight="342.0" prefWidth="524.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="tabChurros" text="Churros">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="churroItemsTable" layoutY="59.0" prefHeight="333.0" prefWidth="526.0">
+
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="127.0" />
+                                    <ComboBox layoutX="141.0" layoutY="20.0" prefHeight="25.0" prefWidth="65.0" />
+                                    <Button fx:id="btnInventoryAddItem" layoutX="294.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnAddItem" prefHeight="25.0" prefWidth="98.0" text="+Add Item" />
+                                    <Button fx:id="btnInventoryShoppingList" layoutX="402.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnShoppingList" prefHeight="25.0" prefWidth="110.0" text="+ Create Shopping List" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab fx:id="tabIceCream" text="Ice Cream">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="iceCreamItemsTable" layoutY="59.0" prefHeight="333.0" prefWidth="526.0">
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="127.0" />
+                                    <ComboBox layoutX="141.0" layoutY="20.0" prefHeight="25.0" prefWidth="65.0" />
+                                    <Button fx:id="btnInventoryAddItemIc" layoutX="294.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnAddItem" prefHeight="25.0" prefWidth="98.0" text="+Add Item" />
+                                    <Button fx:id="btnInventoryShoppingListIc" layoutX="402.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBtnShoppingList" prefHeight="25.0" prefWidth="110.0" text="+ Create Shopping List" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <Button fx:id="btnInventoryExpenses" mnemonicParsing="false" onAction="#handleBtnExpenses" prefHeight="25.0" prefWidth="98.0" text="Expenses" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
             <GridPane fx:id="pnlProducts" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="526.0" style="-fx-background-color: #fff;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -330,7 +330,7 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="526.0">
                                  <children>
-                                    <TableView layoutY="59.0" prefHeight="336.0" prefWidth="526.0" />
+                                    <TableView fx:id="productsChurroTable" layoutY="59.0" prefHeight="336.0" prefWidth="526.0" />
                                     <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="191.0" />
                                     <ComboBox layoutX="205.0" layoutY="20.0" prefHeight="25.0" prefWidth="76.0" />
                                     <Button fx:id="btnChurroShoppingList1" layoutX="369.0" layoutY="396.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="+ Create Shopping List" />
@@ -344,7 +344,7 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="526.0">
                                  <children>
-                                    <TableView layoutY="59.0" prefHeight="336.0" prefWidth="526.0" />
+                                    <TableView fx:id="productsIceCreamTable" layoutY="59.0" prefHeight="336.0" prefWidth="526.0" />
                                     <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="191.0" />
                                     <ComboBox layoutX="205.0" layoutY="20.0" prefHeight="25.0" prefWidth="76.0" />
                                     <Button fx:id="btnChurroShoppingList11" layoutX="369.0" layoutY="396.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="+ Create Shopping List" />

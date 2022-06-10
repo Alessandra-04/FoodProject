@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="301.0" prefWidth="337.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnProductsAddOrderController">
+<AnchorPane prefHeight="301.0" prefWidth="336.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnProductsAddProductController">
    <children>
       <Label layoutX="39.0" layoutY="40.0" text="Product ID" textFill="WHITE" />
       <Label layoutX="40.0" layoutY="74.0" text="Category" textFill="WHITE" />
-      <Label layoutX="40.0" layoutY="108.0" text="Amount Produced" textFill="WHITE" />
+      <Label layoutX="40.0" layoutY="113.0" text="Amount Produced" textFill="WHITE" />
       <Label layoutX="38.0" layoutY="160.0" text="Date Made" textFill="WHITE" />
-      <Label layoutX="39.0" layoutY="221.0" text="Due Date" textFill="WHITE" />
-      <TextField layoutX="118.0" layoutY="36.0" />
-      <TextField layoutX="118.0" layoutY="70.0" />
-      <TextField layoutX="156.0" layoutY="104.0" prefHeight="25.0" prefWidth="111.0" />
-      <DatePicker layoutX="106.0" layoutY="156.0" />
-      <DatePicker layoutX="106.0" layoutY="217.0" />
+      <Label layoutX="20.0" layoutY="200.0" prefHeight="17.0" prefWidth="88.0" text="Expiration Date" textFill="WHITE" />
+      <TextField fx:id="pProdId" layoutX="118.0" layoutY="36.0" />
+      <TextField fx:id="pCategory" layoutX="118.0" layoutY="70.0" />
+      <TextField fx:id="pAmtProd" layoutX="156.0" layoutY="111.0" prefHeight="25.0" prefWidth="111.0" />
+      <DatePicker fx:id="pDateMade" layoutX="106.0" layoutY="156.0" />
+      <DatePicker fx:id="pExpDate" layoutX="106.0" layoutY="196.0" />
+      <Button fx:id="pBtnSave" layoutX="239.0" layoutY="246.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Save" />
    </children>
 </AnchorPane>

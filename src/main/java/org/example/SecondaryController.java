@@ -241,11 +241,11 @@ public class SecondaryController {
 
         loadProductData();
 
-        pProdId.setCellValueFactory(new PropertyValueFactory<AddProduct, Long>("prodProductId"));
-        pCategory.setCellValueFactory(new PropertyValueFactory<AddProduct, String>("productCategory"));
-        pDateMade.setCellValueFactory(new PropertyValueFactory<AddProduct, Date>("description"));
-        pExpDate.setCellValueFactory(new PropertyValueFactory<AddProduct, Date>("standardCost"));
-        pAmtProduced.setCellValueFactory(new PropertyValueFactory<AddProduct, Integer>("stock"));
+        prodId.setCellValueFactory(new PropertyValueFactory<AddProduct, Long>("prodProductId"));
+        prodCategory.setCellValueFactory(new PropertyValueFactory<AddProduct, String>("productCategory"));
+        prodDateMade.setCellValueFactory(new PropertyValueFactory<AddProduct, Date>("dateMade"));
+        prodExpirationDate.setCellValueFactory(new PropertyValueFactory<AddProduct, Date>("dateExpired"));
+        prodAmountProduced.setCellValueFactory(new PropertyValueFactory<AddProduct, Integer>("amountProduced"));
 
         productsChurroTable.getColumns().add(prodId);
         productsChurroTable.getColumns().add(prodCategory);
@@ -378,8 +378,6 @@ public class SecondaryController {
 
     }
 
-    
-
 
     public static void loadNewOrders() {
 
@@ -449,9 +447,9 @@ public class SecondaryController {
 
         Gson gson = new Gson();
         try (Reader reader = new FileReader("newEmployeeJson.Json")) {
-            ArrayList<NewOrder> imports = gson.fromJson(reader, new TypeToken<ArrayList<NewEmployee>>() {
+            ArrayList<NewEmployee> imports = gson.fromJson(reader, new TypeToken<ArrayList<NewEmployee>>() {
             }.getType());
-            App.newOrders = FXCollections.observableArrayList(imports);
+            App.newEmployees = FXCollections.observableArrayList(imports);
         } catch (IOException e) {
             e.printStackTrace();
         }
