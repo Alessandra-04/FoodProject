@@ -21,6 +21,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+
 
 public class BtnScanReceiptController implements Initializable {
 
@@ -68,11 +71,6 @@ public class BtnScanReceiptController implements Initializable {
 
 
     }
-
-    public void handleBtnReadReciept(ActionEvent actionEvent) {
-
-
-    }
     public void handleBtnDisplayImages(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
@@ -85,4 +83,28 @@ public class BtnScanReceiptController implements Initializable {
         stage.show();
 
     }
+
+    public void handleBtnReadReceipt(ActionEvent actionEvent) {
+
+    // tesseract scan
+
+        Tesseract tesseract = new Tesseract();
+        try {
+
+            tesseract.setDatapath("D:/Tess4J/tessdata");
+
+            // the path of your tess data folder
+            // inside the extracted file
+            String text
+                    = tesseract.doOCR(new File("IMG_1002.jpg"));
+
+            // path of your image file
+            System.out.print(text);
+        }
+        catch (TesseractException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
+
