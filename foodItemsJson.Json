@@ -6,7 +6,7 @@
     "standardCost": 4,
     "stock": 2,
     "supplier": "Gloria",
-    "category": "Liquidos"
+    "amountLeft": 11.4
   },
   {
     "productId": 1234567891235,
@@ -15,6 +15,6 @@
     "standardCost": 10,
     "stock": 1,
     "supplier": "Tottus",
-    "category": "Liquidos"
+    "amountLeft": 2.1
   }
 ]

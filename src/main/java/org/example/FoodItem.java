@@ -8,17 +8,17 @@ public class FoodItem {
     public double standardCost;
     public int stock;
     public String supplier;
-    public String category;
+    public Double amountLeft;
 
 
-    public FoodItem(long productId, String name, String description, double standardCost, int stock, String supplier, String category) {
+    public FoodItem(long productId, String name, String description, double standardCost, int stock, String supplier, Double amountLeft) {
         this.productId = productId;
         this.name = name;
         this.description = description;
         this.standardCost = standardCost;
         this.stock = stock;
         this.supplier = supplier;
-        this.category = category;
+        this.amountLeft = amountLeft;
     }
 
     public long getProductId() {
@@ -69,12 +69,12 @@ public class FoodItem {
         this.supplier = supplier;
     }
 
-    public String getCategory() {
-        return category;
+    public double getCategory() {
+        return amountLeft;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategory(Double category) {
+        this.amountLeft = category;
     }
 }
 

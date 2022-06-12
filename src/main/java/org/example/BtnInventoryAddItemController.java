@@ -20,7 +20,7 @@ public class BtnInventoryAddItemController {
     public TextField cStandCost;
     public TextField cStock;
     public TextField cSupplier;
-    public TextField cCatg;
+    public TextField cAmtLeft;
     public Button cSaveItembtn;
 
 
@@ -33,7 +33,7 @@ public class BtnInventoryAddItemController {
             }
         }
         if(exists == false){
-            App.foodItems.add(new FoodItem(Integer.parseInt(cProdId.getText()), cName.getText(), cDescrip.getText(), Integer.parseInt(cStandCost.getText()), Integer.parseInt(cStock.getText()), cSupplier.getText(), cCatg.getText()));
+            App.foodItems.add(new FoodItem(Integer.parseInt(cProdId.getText()), cName.getText(), cDescrip.getText(), Integer.parseInt(cStandCost.getText()), Integer.parseInt(cStock.getText()), cSupplier.getText(), Double.parseDouble(cAmtLeft.getText())));
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

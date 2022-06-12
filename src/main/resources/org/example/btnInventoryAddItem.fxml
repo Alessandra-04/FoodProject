@@ -21,7 +21,7 @@
       <TextField fx:id="cStandCost" layoutX="115.0" layoutY="85.0" prefHeight="25.0" prefWidth="149.0" />
       <TextField fx:id="cStock" layoutX="115.0" layoutY="115.0" prefHeight="25.0" prefWidth="149.0" />
       <TextField fx:id="cSupplier" layoutX="116.0" layoutY="146.0" prefHeight="25.0" prefWidth="149.0" />
-      <TextField fx:id="cCatg" layoutX="116.0" layoutY="177.0" />
+      <TextField fx:id="cAmtLeft" layoutX="116.0" layoutY="177.0" />
       <Button fx:id="cSaveItembtn" layoutX="425.0" layoutY="231.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Save" />
    </children>
 </AnchorPane>

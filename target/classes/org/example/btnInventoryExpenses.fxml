@@ -5,11 +5,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="370.0" prefWidth="544.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnInventoryShoppingListController">
+<AnchorPane prefHeight="370.0" prefWidth="544.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnInventoryExpensesController">
    <children>
-      <TableView layoutX="37.0" layoutY="27.0" prefHeight="301.0" prefWidth="465.0">
+      <TableView fx:id="expensesTable" layoutX="37.0" layoutY="27.0" prefHeight="301.0" prefWidth="465.0">
         <columns>
-          <TableColumn prefWidth="92.0" text="Product ID" />
+          <TableColumn prefWidth="92.0" text="Name" />
           <TableColumn prefWidth="74.0" text="Amount" />
             <TableColumn prefWidth="82.0" text="Cost" />
             <TableColumn prefWidth="84.0" text="Discount" />
@@ -20,6 +20,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="394.0" layoutY="335.0" mnemonicParsing="false" text="Back to Inventory" />
+      <Button layoutX="394.0" layoutY="335.0" mnemonicParsing="false" onAction="#goInventory" text="Back to Inventory" />
    </children>
 </AnchorPane>

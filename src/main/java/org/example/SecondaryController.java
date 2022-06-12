@@ -145,7 +145,7 @@ public class SecondaryController {
     public TextField cStandCost;
     public TextField cStock;
     public TextField cSupplier;
-    public TextField cCatg;
+    public TextField cAmtLeft;
     public TableView churroItemsTable;
     public TableColumn<FoodItem, Long> itemId = new TableColumn<>("Item. Id");
     public TableColumn<FoodItem, String> itemName = new TableColumn<>("Name");
@@ -153,7 +153,7 @@ public class SecondaryController {
     public TableColumn<FoodItem, Double> itemStnCost = new TableColumn<>("Standard Cost");
     public TableColumn<FoodItem, Integer> itemStock = new TableColumn<>("Stock");
     public TableColumn<FoodItem, String> itemSupp = new TableColumn<>("Supplier");
-    public TableColumn<FoodItem, String> itemCat = new TableColumn<>("Category");
+    public TableColumn<FoodItem, Double> itemAmtLeft = new TableColumn<>("Amount Left");
 
     //PRODUCTS
 
@@ -279,7 +279,7 @@ public class SecondaryController {
         itemStnCost.setCellValueFactory(new PropertyValueFactory<FoodItem, Double>("standardCost"));
         itemStock.setCellValueFactory(new PropertyValueFactory<FoodItem, Integer>("stock"));
         itemSupp.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("supplier"));
-        itemCat.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("category"));
+        itemAmtLeft.setCellValueFactory(new PropertyValueFactory<FoodItem, Double>("amountLeft"));
 
         churroItemsTable.getColumns().add(itemId);
         churroItemsTable.getColumns().add(itemName);
@@ -287,7 +287,7 @@ public class SecondaryController {
         churroItemsTable.getColumns().add(itemStnCost);
         churroItemsTable.getColumns().add(itemStock);
         churroItemsTable.getColumns().add(itemSupp);
-        churroItemsTable.getColumns().add(itemCat);
+        churroItemsTable.getColumns().add(itemAmtLeft);
 
         churroItemsTable.setItems(App.foodItems);
 
@@ -302,7 +302,7 @@ public class SecondaryController {
                     cStandCost.setText(Double.toString(clickedRow.getStandardCost()));
                     cStock.setText(Integer.toString(clickedRow.getStock()));
                     cSupplier.setText(clickedRow.getSupplier());
-                    cCatg.setText(clickedRow.getCategory());
+                    cAmtLeft.setText(Double.toString(clickedRow.getCategory()));
                 }
             });
             return row;
