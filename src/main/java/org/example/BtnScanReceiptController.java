@@ -29,7 +29,6 @@ public class BtnScanReceiptController implements Initializable {
 
 
     public Button btnOpenImageSc;
-
     public Button btnReadReceiptSc;
     public Button btnLeaveScanReceiptSc;
     public Button btnDisplayImages;
