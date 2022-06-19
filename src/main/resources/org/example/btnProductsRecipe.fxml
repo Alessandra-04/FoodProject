@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="417.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnProductsRecipeController">
    <children>
       <TabPane prefHeight="375.0" prefWidth="504.0" tabClosingPolicy="UNAVAILABLE">
@@ -18,24 +17,12 @@
                      <children>
                         <Label layoutX="84.0" layoutY="29.0" text="Manjar Blanco" />
                         <Label layoutX="337.0" layoutY="29.0" text="Chocolate" />
-                        <ListView layoutX="32.0" layoutY="142.0" prefHeight="175.0" prefWidth="200.0" />
-                        <ListView layoutX="264.0" layoutY="142.0" prefHeight="175.0" prefWidth="200.0" />
+                        <ListView layoutX="32.0" layoutY="67.0" prefHeight="250.0" prefWidth="200.0" />
+                        <ListView layoutX="264.0" layoutY="68.0" prefHeight="249.0" prefWidth="200.0" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Ice Cream">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="522.0">
-                     <children>
-                        <Label layoutX="96.0" layoutY="29.0" text="Vanilla" />
-                        <Label layoutX="337.0" layoutY="29.0" text="Chocolate" />
-                        <ListView layoutX="32.0" layoutY="142.0" prefHeight="175.0" prefWidth="200.0" />
-                        <ListView layoutX="264.0" layoutY="142.0" prefHeight="175.0" prefWidth="200.0" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
         </tabs>
       </TabPane>
       <Button fx:id="btnBackToProducts" layoutX="358.0" layoutY="386.0" mnemonicParsing="false" text="Back to Products" />

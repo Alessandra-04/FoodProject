@@ -184,20 +184,6 @@ public class SecondaryController {
     public TableColumn<NewCustomer, Date> cusDateOfPur = new TableColumn<>("Date of Purchase");
     public TableColumn<NewCustomer, String> cusReview = new TableColumn<>("Customer Review");
 
-    // EMPLOYEES
-    public TextField eId;
-    public TextField eName;
-    public TextField eShift;
-    public TextField eOrdAssign;
-    public TextField eSrtCon;
-    public TextField eFinCon;
-    public TableView employeeTable;
-    public TableColumn<NewEmployee, Long> empId = new TableColumn<>("Emp. Id");
-    public TableColumn<NewEmployee, String> empName = new TableColumn<>("Name");
-    public TableColumn<NewEmployee, String> empShift = new TableColumn<>("Shift");
-    public TableColumn<NewEmployee, String> empOrdAssigned = new TableColumn<>("Order Assigned");
-    public TableColumn<NewEmployee, Date> empSrtContract = new TableColumn<>("Start Contract");
-    public TableColumn<NewEmployee, Date> empFinContract = new TableColumn<>("Finish Contract");
 
     // ORDERS
     public void initialize() {

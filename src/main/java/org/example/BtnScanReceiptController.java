@@ -5,13 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 
 
 import javafx.scene.Scene;
 
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -39,6 +37,9 @@ public class BtnScanReceiptController implements Initializable {
     public ListView openImageList;
     public TextArea txtReceipt;
     public Button btnSaveMod;
+
+
+    public TextField cProdId;
 
 
     ArrayList<File> receipts = new ArrayList<>();
@@ -91,7 +92,9 @@ public class BtnScanReceiptController implements Initializable {
 
     }
     public void toShoppingList(ActionEvent actionEvent) {
-        //Save button
+
+        String saveText = txtReceipt.getText();
+        System.out.println(cProdId);
 
 
     }
@@ -133,14 +136,11 @@ public class BtnScanReceiptController implements Initializable {
             String showText = "";
             while (matchItem.find()){
                     showText = showText + matchItem.group() + "\n";
+                    // access churros table and put each item on the right column
+                // ex. churrosItemsTable.row(1).addItem.matchItem.group(1)
+
                 }
             txtReceipt.setText(showText);
-
-
-
-
-
-
 
 
             //tempName = ""
@@ -165,6 +165,14 @@ public class BtnScanReceiptController implements Initializable {
             // separate
 
 
+            /*
+            150 g flour
+            1 tsp baking powder
+            Pinch of salt
+            1 tbsp vegetable, canola or olive oil (not extra virgin olive oil)
+            250 ml boiling water
+            500 ml+ vegetable or canola oil , for frying
+             */
 
 
 
