@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.Scene;
 
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -25,6 +26,7 @@ import java.util.ResourceBundle;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import org.apache.commons.io.FileUtils;
+import java.util.regex.*;
 
 
 public class BtnScanReceiptController implements Initializable {
@@ -35,6 +37,8 @@ public class BtnScanReceiptController implements Initializable {
     public Button btnLeaveScanReceiptSc;
     public Button btnDisplayImages;
     public ListView openImageList;
+    public TextArea txtReceipt;
+    public Button btnSaveMod;
 
 
     ArrayList<File> receipts = new ArrayList<>();
@@ -106,7 +110,7 @@ public class BtnScanReceiptController implements Initializable {
 
     public void handleBtnReadReceipt(ActionEvent actionEvent) {
 
-    // tesseracts scan
+    // tesseract scan
 
         Tesseract tesseract = new Tesseract();
         try {
@@ -120,6 +124,52 @@ public class BtnScanReceiptController implements Initializable {
 
             // path of your image file
             System.out.print(text);
+
+            txtReceipt.setText(text);
+
+            String itemsPattern = "([0-9]{13})\\s+([a-z,A-Z,\\s.]+).*(\\s[0-9]{1,2}[,.][0-9]{2})";
+            Pattern itemPattern = Pattern.compile(itemsPattern, Pattern.MULTILINE);
+            Matcher matchItem = itemPattern.matcher(text);
+            String showText = "";
+            while (matchItem.find()){
+                    showText = showText + matchItem.group() + "\n";
+                }
+            txtReceipt.setText(showText);
+
+
+
+
+
+
+
+
+            //tempName = ""
+            //itemList{}
+            //Int newItemFound = 0
+            //int PriceFound =0
+            //split string by spaces
+            //for each splitItem
+            //	if it is 12 digits
+            //		newItemFound =1
+            //		itemList.add new item
+            //	if newItemFound = 1 && PriceFound==0
+            //		tempName=+ split+ " "
+            //	if split = xx.xx or x.xx
+            //		pricefound=1
+            //		itemList.set Name of the last item to tempName
+            //		tempName=""
+            //		itemList.set price oflast item to split
+            //		newItemFound=0
+            //		pricefound=0
+
+            // separate
+
+
+
+
+
+
+
         }
         catch (TesseractException e) {
             e.printStackTrace();

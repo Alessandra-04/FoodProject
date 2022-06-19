@@ -342,40 +342,6 @@ public class SecondaryController {
             return row;
         });
 
-        loadEmployeeData();
-
-        empId.setCellValueFactory(new PropertyValueFactory<NewEmployee, Long>("employeeId"));
-        empName.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("employeeName"));
-        empShift.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("shift"));
-        empOrdAssigned.setCellValueFactory(new PropertyValueFactory<NewEmployee, String>("ordersAssigned"));
-        empSrtContract.setCellValueFactory(new PropertyValueFactory<NewEmployee, Date>("startContract"));
-        empFinContract.setCellValueFactory(new PropertyValueFactory<NewEmployee, Date>("finishContract"));
-
-        employeeTable.getColumns().add(empId);
-        employeeTable.getColumns().add(empName);
-        employeeTable.getColumns().add(empShift);
-        employeeTable.getColumns().add(empOrdAssigned);
-        employeeTable.getColumns().add(empSrtContract);
-        employeeTable.getColumns().add(empFinContract);
-
-        employeeTable.setItems(App.newEmployees);
-
-        employeeTable.setRowFactory(rowClick -> {
-            TableRow<NewEmployee> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
-                    NewEmployee clickedRow = row.getItem();
-                    eId.setText(Long.toString(clickedRow.getEmployeeId()));
-                    eName.setText(clickedRow.getEmployeeName());
-                    eShift.setText(clickedRow.getShift());
-                    eOrdAssign.setText(clickedRow.getOrdersAssigned());
-                    eSrtCon.setText(String.valueOf(clickedRow.getStartContract()));
-                    eFinCon.setText(String.valueOf(clickedRow.getFinishContract()));
-                }
-            });
-            return row;
-        });
-
     }
 
 
@@ -438,22 +404,6 @@ public class SecondaryController {
             e.printStackTrace();
         }
         for (NewCustomer i: App.newCustomers
-            ){
-            System.out.println(i);
-        }
-    }
-
-    public static void loadEmployeeData() {
-
-        Gson gson = new Gson();
-        try (Reader reader = new FileReader("newEmployeeJson.Json")) {
-            ArrayList<NewEmployee> imports = gson.fromJson(reader, new TypeToken<ArrayList<NewEmployee>>() {
-            }.getType());
-            App.newEmployees = FXCollections.observableArrayList(imports);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for (NewEmployee i: App.newEmployees
             ){
             System.out.println(i);
         }
@@ -549,20 +499,6 @@ public class SecondaryController {
                 SecondaryController.class.getResource("btnCustomerAddCustomer.fxml"));
         stage.setScene(new Scene(root));
         stage.setTitle("Add new Customer");
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(
-                ((Node) actionEvent.getSource()).getScene().getWindow());
-        stage.show();
-    }
-
-    // Employees Division
-
-    public void handleBtnAddEmployee(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(
-                SecondaryController.class.getResource("btnEmployeesAddEmployee.fxml"));
-        stage.setScene(new Scene(root));
-        stage.setTitle("Add new Employee");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
                 ((Node) actionEvent.getSource()).getScene().getWindow());

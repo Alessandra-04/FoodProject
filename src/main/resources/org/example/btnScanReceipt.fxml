@@ -12,7 +12,7 @@
       <Button fx:id="btnLeaveScanReceiptSc" layoutX="451.0" layoutY="296.0" mnemonicParsing="false" onAction="#toShoppingList" text="Go to shopping List" />
       <ListView fx:id="openImageList" layoutX="142.0" layoutY="30.0" prefHeight="65.0" prefWidth="429.0" />
       <Button fx:id="btnDisplayImages" layoutX="24.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleBtnDisplayImages" prefHeight="25.0" prefWidth="103.0" text="Display Images" />
-      <TextArea layoutX="24.0" layoutY="109.0" prefHeight="212.0" prefWidth="290.0" />
+      <TextArea fx:id="txtReceipt" layoutX="24.0" layoutY="109.0" prefHeight="212.0" prefWidth="290.0" />
       <Button fx:id="btnSaveMod" layoutX="335.0" layoutY="148.0" mnemonicParsing="false" text="Save Modifications" />
    </children>
 </AnchorPane>
