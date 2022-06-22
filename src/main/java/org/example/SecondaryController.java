@@ -1,12 +1,15 @@
 package org.example;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ResourceBundle;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +17,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
@@ -24,11 +28,19 @@ import javafx.stage.Stage;
 
 public class SecondaryController {
 
-    public TableView icecreamItemsTable;
+    // initialize ???
+
+    @FXML
+    public PieChart pieChartOverview;
+    @FXML
+    public LineChart lineGraphOverview;
+    @FXML
+    public NumberAxis yAxisDays;
+    @FXML
+    public CategoryAxis xAxisDays;
+
     @FXML
     private Button btnCustomers;
-    @FXML
-    private Button btnEmployees;
     @FXML
     private Button btnInventory;
     @FXML
@@ -48,8 +60,6 @@ public class SecondaryController {
 
     @FXML
     private GridPane pnlCustomers;
-    @FXML
-    private GridPane pnlEmployees;
     @FXML
     private GridPane pnlInventory;
     @FXML
@@ -73,9 +83,6 @@ public class SecondaryController {
     // Button in the panel of Customer
     @FXML
     private Button btnCustomerAddCustomer;
-    // Button in the panel of Employees
-    @FXML
-    private Button btnEmployeesAddEmployee;
 
 
     @FXML
@@ -95,7 +102,6 @@ public class SecondaryController {
             pnlTitle.setBackground(new Background(new BackgroundFill(Color.rgb(85, 168, 254), CornerRadii.EMPTY, Insets.EMPTY)));
             pnlInventory.toFront();
 
-
         } else if (event.getSource() == btnProducts) {
             lblTitleUnit.setText("PRODUCTS");
             pnlTitle.setBackground(new Background(new BackgroundFill(Color.rgb(219, 168, 254), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -105,11 +111,6 @@ public class SecondaryController {
             lblTitleUnit.setText("CUSTOMERS");
             pnlTitle.setBackground(new Background(new BackgroundFill(Color.rgb(152, 168, 254), CornerRadii.EMPTY, Insets.EMPTY)));
             pnlCustomers.toFront();
-
-        } else if (event.getSource() == btnEmployees) {
-            lblTitleUnit.setText("EMPLOYEES");
-            pnlTitle.setBackground(new Background(new BackgroundFill(Color.rgb(7, 168, 254), CornerRadii.EMPTY, Insets.EMPTY)));
-            pnlEmployees.toFront();
         }
     }
 
@@ -117,42 +118,75 @@ public class SecondaryController {
         App.setRoot("primary");
     }
 
+    //OVERVIEW
+
+    /*
+     * https://www.youtube.com/watch?v=bpHmrgvpEDQ
+     */
+
+    // PIE CHART
+
+    /*
+    // @override
+    public void initialize(URL url, ResourceBundle rb) {
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("6-box Churros", 22),
+                new PieChart.Data("12-box Churros", 23),
+                new PieChart.Data("24-box Churros", 8));
+        pieChartOverview.setData(pieChartData);
+        pieChartOverview.setStartAngle(90);
+    }
+    /*
+     */
+
+    // LINE GRAPH
+
+
+    /*public void initialize(URL url, ResourceBundle rb) {
+        XYChart.Series series = new XYChart.Series();
+
+        series.getData().add(new XYChart.Data("1", 11));
+        series.getData().add(new XYChart.Data("2", 8));
+        series.getData().add(new XYChart.Data("3", 13));
+        series.getData().add(new XYChart.Data("4", 35));
+        series.getData().add(new XYChart.Data("5", 12));
+        series.getData().add(new XYChart.Data("6", 33));
+        series.getData().add(new XYChart.Data("7", 23));
+
+        lineGraphOverview.getData().addAll(series);
+
+    }
+*/
+
     //ORDERS TABLE
 
     public TextField oProdId;
     public TextField oCusId;
-    public TextArea oDescrip;
     public TextField oTotPr;
-    public TextField oAssEm;
+    public TextField oDateOfOrder;
     public TextField oStatus;
-    public TextField oDate;
+    public TextField oDueDate;
     public TableView ordersTable;
     public TableColumn<NewOrder, Long> orProductIds = new TableColumn("Product Ids");
     public TableColumn<NewOrder, Long> orCusId = new TableColumn<>("Customer Id");
-    public TableColumn<NewOrder, String> orDescription = new TableColumn<>("Description");
     public TableColumn<NewOrder, Double> orTotalPrice = new TableColumn<>("Total Price");
-    public TableColumn<NewOrder, String> orAssignedEmp = new TableColumn<>("Assigned Employee");
+    public TableColumn<NewOrder, Date> orDateOfOrder = new TableColumn<>("Date of Order");
     public TableColumn<NewOrder, String> orStatus = new TableColumn<>("Status");
-    public TableColumn<NewOrder, Date> orDate = new TableColumn<>("Date");
+    public TableColumn<NewOrder, Date> orDueDate = new TableColumn<>("Due Date");
 
 
     // INVENTORY TABLE (example)
 
-    // 1#
     public TextField cProdId;
     public TextField cName;
-    public TextArea cDescrip;
     public TextField cStandCost;
     public TextField cStock;
-    public TextField cSupplier;
     public TextField cAmtLeft;
     public TableView churroItemsTable;
     public TableColumn<FoodItem, Long> itemId = new TableColumn<>("Item. Id");
     public TableColumn<FoodItem, String> itemName = new TableColumn<>("Name");
-    public TableColumn<FoodItem, String> itemDescrip = new TableColumn<>("Description");
     public TableColumn<FoodItem, Double> itemStnCost = new TableColumn<>("Standard Cost");
     public TableColumn<FoodItem, Integer> itemStock = new TableColumn<>("Stock");
-    public TableColumn<FoodItem, String> itemSupp = new TableColumn<>("Supplier");
     public TableColumn<FoodItem, Double> itemAmtLeft = new TableColumn<>("Amount Left");
 
     //PRODUCTS
@@ -192,19 +226,17 @@ public class SecondaryController {
 
         orProductIds.setCellValueFactory(new PropertyValueFactory<NewOrder, Long>("productIdOrder"));
         orCusId.setCellValueFactory(new PropertyValueFactory<NewOrder, Long>("customerId"));
-        orDescription.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("descriptionOfOrder"));
         orTotalPrice.setCellValueFactory(new PropertyValueFactory<NewOrder, Double>("totalPrice"));
-        orAssignedEmp.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("assignedEmployee"));
+        orDateOfOrder.setCellValueFactory(new PropertyValueFactory<NewOrder, Date>("dateOfOrder"));
         orStatus.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("status"));
-        orDate.setCellValueFactory(new PropertyValueFactory<NewOrder, Date>("date"));
+        orDueDate.setCellValueFactory(new PropertyValueFactory<NewOrder, Date>("dueDate"));
 
         ordersTable.getColumns().add(orProductIds);
         ordersTable.getColumns().add(orCusId);
-        ordersTable.getColumns().add(orDescription);
         ordersTable.getColumns().add(orTotalPrice);
-        ordersTable.getColumns().add(orAssignedEmp);
+        ordersTable.getColumns().add(orDateOfOrder);
         ordersTable.getColumns().add(orStatus);
-        ordersTable.getColumns().add(orDate);
+        ordersTable.getColumns().add(orDueDate);
 
         ordersTable.setItems(App.newOrders);
 
@@ -215,11 +247,10 @@ public class SecondaryController {
                     NewOrder clickedRow = row.getItem();
                     oProdId.setText(Long.toString(clickedRow.getProductIdOrder()));
                     oCusId.setText(Long.toString(clickedRow.getCustomerId()));
-                    oDescrip.setText(clickedRow.getDescriptionOfOrder());
                     oTotPr.setText(Double.toString(clickedRow.getTotalPrice()));
-                    oAssEm.setText(clickedRow.getAssignedEmployee());
+                    oDateOfOrder.setText(clickedRow.getAssignedEmployee());
                     oStatus.setText(clickedRow.getStatus());
-                    oDate.setText(String.valueOf(clickedRow.getDate()));
+                    oDueDate.setText(String.valueOf(clickedRow.getDate()));
                 }
             });
             return row;
@@ -261,7 +292,6 @@ public class SecondaryController {
 
         itemId.setCellValueFactory(new PropertyValueFactory<FoodItem, Long>("productId"));
         itemName.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("name"));
-        itemDescrip.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("description"));
         itemStnCost.setCellValueFactory(new PropertyValueFactory<FoodItem, Double>("standardCost"));
         itemStock.setCellValueFactory(new PropertyValueFactory<FoodItem, Integer>("stock"));
         itemSupp.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("supplier"));
@@ -329,7 +359,6 @@ public class SecondaryController {
         });
 
     }
-
 
     public static void loadNewOrders() {
 
@@ -490,5 +519,4 @@ public class SecondaryController {
                 ((Node) actionEvent.getSource()).getScene().getWindow());
         stage.show();
     }
-
 }

@@ -5,14 +5,12 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="345.0" prefWidth="594.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnScanReceiptController">
+<AnchorPane prefHeight="345.0" prefWidth="541.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnScanReceiptController">
    <children>
       <Button fx:id="btnOpenImageSc" layoutX="24.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleBtnOpenImage" text="Open Image File" />
-      <Button fx:id="btnReadReceiptSc" layoutX="335.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleBtnReadReceipt" prefHeight="25.0" prefWidth="116.0" text="Read Receipts" />
-      <Button fx:id="btnLeaveScanReceiptSc" layoutX="451.0" layoutY="296.0" mnemonicParsing="false" onAction="#toShoppingList" text="Go to shopping List" />
-      <ListView fx:id="openImageList" layoutX="142.0" layoutY="30.0" prefHeight="65.0" prefWidth="429.0" />
-      <Button fx:id="btnDisplayImages" layoutX="24.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleBtnDisplayImages" prefHeight="25.0" prefWidth="103.0" text="Display Images" />
-      <TextArea fx:id="txtReceipt" layoutX="24.0" layoutY="109.0" prefHeight="212.0" prefWidth="290.0" />
-      <Button fx:id="btnSaveMod" layoutX="335.0" layoutY="148.0" mnemonicParsing="false" text="Save Modifications" />
+      <Button fx:id="btnReadReceiptSc" layoutX="24.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleBtnReadReceipt" prefHeight="25.0" prefWidth="103.0" text="Read Receipt" />
+      <Button fx:id="btnLeaveScanReceiptSc" layoutX="381.0" layoutY="296.0" mnemonicParsing="false" onAction="#toShoppingList" text="Go to shopping List" />
+      <ListView fx:id="openImageList" layoutX="142.0" layoutY="30.0" prefHeight="65.0" prefWidth="366.0" />
+      <TextArea fx:id="txtReceipt" layoutX="24.0" layoutY="109.0" prefHeight="212.0" prefWidth="342.0" />
    </children>
 </AnchorPane>

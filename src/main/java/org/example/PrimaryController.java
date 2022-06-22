@@ -7,10 +7,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
-public class PrimaryController implements Initializable {
+public class PrimaryController {
 
-    public recipe churrosRecipe = new recipe();
 
+    /*
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -26,6 +26,7 @@ public class PrimaryController implements Initializable {
 
         System.out.println(churrosRecipe.recipeItems.get(0).unitOfMeasurement);
     }
+     */
 
     public void switchToSecondary(ActionEvent actionEvent) throws IOException {
         App.setRoot("secondary");

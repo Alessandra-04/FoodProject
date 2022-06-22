@@ -23,6 +23,6 @@
       <Button fx:id="btnCompleted" layoutX="67.0" layoutY="322.0" mnemonicParsing="false" text="Completed" />
       <Button fx:id="btnSave" layoutX="299.0" layoutY="322.0" mnemonicParsing="false" onAction="#goInventory" text="Save" />
       <Label layoutX="67.0" layoutY="32.0" text="Hi! How many CHURROS do you want to prepare?" textFill="WHITE" />
-      <ChoiceBox fx:id="txtChoice" layoutX="67.0" layoutY="57.0" prefWidth="150.0" onAction="#choiceSelected"/>
+      <ChoiceBox fx:id="txtChoice" layoutX="67.0" layoutY="57.0" onAction="#choiceSelected" prefWidth="150.0" />
    </children>
 </AnchorPane>

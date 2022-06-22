@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -20,9 +21,30 @@ public class App extends Application {
     public static ObservableList<NewOrder> newOrders = FXCollections.observableArrayList();
     public static ObservableList<AddProduct> addProducts = FXCollections.observableArrayList();
     public static ObservableList<NewCustomer> newCustomers = FXCollections.observableArrayList();
+    public static Recipe churrosRecipe;
 
     @Override
     public void start(Stage stage) throws IOException {
+        /** Churros Recipe **/
+      /*  Recipe:
+
+        150 g flour
+        1 tsp baking powder
+        Pinch of salt
+        1 tbsp vegetable, canola or olive oil (not extra virgin olive oil)
+        250 ml boiling water
+        500 ml+ vegetable or canola oil , for frying
+       */
+
+        //ArrayList<recipeItem> recipeItems;
+        ArrayList<FoodItem> ingredients = new ArrayList<>();
+
+        ingredients.add(new FoodItem(123421213,"Flour", "Non-granulated Flour", 8.90, 1,))
+        String method = "This is how I make a churro \n is a new line.";
+        int portions = 5;
+        int minutes = 15
+        churrosRecipe = new Recipe(ingredients,method,portions,minutes);
+        /**End of churros Recipe**/
         scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
         stage.show();

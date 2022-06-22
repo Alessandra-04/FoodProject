@@ -33,11 +33,8 @@ public class BtnScanReceiptController implements Initializable {
     public Button btnOpenImageSc;
     public Button btnReadReceiptSc;
     public Button btnLeaveScanReceiptSc;
-    public Button btnDisplayImages;
     public ListView openImageList;
     public TextArea txtReceipt;
-    public Button btnSaveMod;
-
 
     public TextField cProdId;
 
@@ -50,9 +47,9 @@ public class BtnScanReceiptController implements Initializable {
 
     public void handleBtnOpenImage(ActionEvent actionEvent) {
 
-        /**
-         * * https://www.youtube.com/watch?v=ytHsYpw1McU
-         * */
+        /*
+         * https://www.youtube.com/watch?v=ytHsYpw1McU
+         */
 
     final FileChooser fc = new FileChooser();
 
@@ -96,24 +93,16 @@ public class BtnScanReceiptController implements Initializable {
         String saveText = txtReceipt.getText();
         System.out.println(cProdId);
 
-
-    }
-    public void handleBtnDisplayImages(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(
-                BtnInventoryShoppingListController.class.getResource("btnDisplayImages.fxml"));
-        stage.setScene(new Scene(root));
-        stage.setTitle("Your Receipts");
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(
-                ((Node) actionEvent.getSource()).getScene().getWindow());
-        stage.show();
+        // save scan
 
     }
 
     public void handleBtnReadReceipt(ActionEvent actionEvent) {
 
-    // tesseract scan
+        /*
+         * https://www.geeksforgeeks.org/tesseract-ocr-with-java-with-examples/
+         */
+
 
         Tesseract tesseract = new Tesseract();
         try {
@@ -130,17 +119,50 @@ public class BtnScanReceiptController implements Initializable {
 
             txtReceipt.setText(text);
 
+            /*
+             * https://www.tutorialspoint.com/javaregex/javaregex_capturing_groups.htm
+             */
+
             String itemsPattern = "([0-9]{13})\\s+([a-z,A-Z,\\s.]+).*(\\s[0-9]{1,2}[,.][0-9]{2})";
             Pattern itemPattern = Pattern.compile(itemsPattern, Pattern.MULTILINE);
             Matcher matchItem = itemPattern.matcher(text);
             String showText = "";
             while (matchItem.find()){
-                    showText = showText + matchItem.group() + "\n";
+                    showText = showText + matchItem.group(1) + "\n";
+                    if (showText.contains(foodItems) = true)
+
+                    // 1. check if the item already exists in fooditems.
+                // 2. if it exists add a number to that fooditem
+                //3. if it doesn't exist create a new food item and add the number bought.
+
+                    App.foodItems.add(new FoodItem(matchItem.group(0) ,matchItem.group(2), matchItem.group(3)));
                     // access churros table and put each item on the right column
-                // ex. churrosItemsTable.row(1).addItem.matchItem.group(1)
 
                 }
             txtReceipt.setText(showText);
+
+            /*
+            String datesPattern = "(Fecha de Emision:([0-9]{2})/([0-9]{2})/([0-9]{4}))";
+            Pattern datePattern = Pattern.compile(datesPattern, Pattern.MULTILINE);
+            Matcher matchDate = datePattern.matcher(text);
+            String showDate = "";
+            while (matchDate.find()){
+                showDate = showDate + matchDate.group() + "\n";
+
+            }
+            txtReceipt.setText(showDate);
+
+            String timesPattern = "(Hora:([0-9]{2}):([0-9]{2}))";
+            Pattern timePattern = Pattern.compile(timesPattern, Pattern.MULTILINE);
+            Matcher matchTime = timePattern.matcher(text);
+            String showTime = "";
+            while (matchTime.find()){
+                showTime = showTime + matchTime.group() + "\n";
+
+            }
+            txtReceipt.setText(showTime);
+
+             */
 
 
             //tempName = ""
@@ -161,19 +183,6 @@ public class BtnScanReceiptController implements Initializable {
             //		itemList.set price oflast item to split
             //		newItemFound=0
             //		pricefound=0
-
-            // separate
-
-
-            /*
-            150 g flour
-            1 tsp baking powder
-            Pinch of salt
-            1 tbsp vegetable, canola or olive oil (not extra virgin olive oil)
-            250 ml boiling water
-            500 ml+ vegetable or canola oil , for frying
-             */
-
 
 
 

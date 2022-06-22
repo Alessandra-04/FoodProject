@@ -1,4 +1,11 @@
 [
   {
+    "productId": 1234567891234,
+    "customerId": "74079988",
+    "description": "12-box churros",
+    "totalPrice": 20,
+    "dateOfOrder": "",
+    "status": "Pending",
+    "dateDue": "20/06/22"
   }
 ]
