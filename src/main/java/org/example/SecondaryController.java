@@ -206,17 +206,13 @@ public class SecondaryController {
     //CUSTOMERS
     public TextField csCusId;
     public TextField csName;
-    public TextArea csDescrip;
     public TextField csContact;
     public TextField csDateOfPur;
-    public TextField csReview;
     public TableView customerTable;
     public TableColumn<NewCustomer, Long> cusId = new TableColumn<>("Customer. Id");
     public TableColumn<NewCustomer, String> cusName = new TableColumn<>("Name");
-    public TableColumn<NewCustomer, String> cusDescription = new TableColumn<>("Description");
     public TableColumn<NewCustomer, Long> cusContact = new TableColumn<>("Contact");
     public TableColumn<NewCustomer, Date> cusDateOfPur = new TableColumn<>("Date of Purchase");
-    public TableColumn<NewCustomer, String> cusReview = new TableColumn<>("Customer Review");
 
 
     // ORDERS
@@ -248,9 +244,9 @@ public class SecondaryController {
                     oProdId.setText(Long.toString(clickedRow.getProductIdOrder()));
                     oCusId.setText(Long.toString(clickedRow.getCustomerId()));
                     oTotPr.setText(Double.toString(clickedRow.getTotalPrice()));
-                    oDateOfOrder.setText(clickedRow.getAssignedEmployee());
+                    oDateOfOrder.setText(String.valueOf(clickedRow.getDateOfOrder()));
                     oStatus.setText(clickedRow.getStatus());
-                    oDueDate.setText(String.valueOf(clickedRow.getDate()));
+                    oDueDate.setText(String.valueOf(clickedRow.getDueDate()));
                 }
             });
             return row;
@@ -294,15 +290,12 @@ public class SecondaryController {
         itemName.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("name"));
         itemStnCost.setCellValueFactory(new PropertyValueFactory<FoodItem, Double>("standardCost"));
         itemStock.setCellValueFactory(new PropertyValueFactory<FoodItem, Integer>("stock"));
-        itemSupp.setCellValueFactory(new PropertyValueFactory<FoodItem, String>("supplier"));
         itemAmtLeft.setCellValueFactory(new PropertyValueFactory<FoodItem, Double>("amountLeft"));
 
         churroItemsTable.getColumns().add(itemId);
         churroItemsTable.getColumns().add(itemName);
-        churroItemsTable.getColumns().add(itemDescrip);
         churroItemsTable.getColumns().add(itemStnCost);
         churroItemsTable.getColumns().add(itemStock);
-        churroItemsTable.getColumns().add(itemSupp);
         churroItemsTable.getColumns().add(itemAmtLeft);
 
         churroItemsTable.setItems(App.foodItems);
@@ -314,10 +307,8 @@ public class SecondaryController {
                     FoodItem clickedRow = row.getItem();
                     cProdId.setText(Long.toString(clickedRow.getProductId()));
                     cName.setText(clickedRow.getName());
-                    cDescrip.setText(clickedRow.getDescription());
                     cStandCost.setText(Double.toString(clickedRow.getStandardCost()));
                     cStock.setText(Integer.toString(clickedRow.getStock()));
-                    cSupplier.setText(clickedRow.getSupplier());
                     cAmtLeft.setText(Double.toString(clickedRow.getCategory()));
                 }
             });
@@ -328,17 +319,13 @@ public class SecondaryController {
 
         cusId.setCellValueFactory(new PropertyValueFactory<NewCustomer, Long>("customerIdCs"));
         cusName.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("customerName"));
-        cusDescription.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("descriptionOfOrderCustomer"));
         cusContact.setCellValueFactory(new PropertyValueFactory<NewCustomer, Long >("contact"));
         cusDateOfPur.setCellValueFactory(new PropertyValueFactory<NewCustomer, Date>("dateOfPurchase"));
-        cusReview.setCellValueFactory(new PropertyValueFactory<NewCustomer, String>("review"));
 
         customerTable.getColumns().add(cusId);
         customerTable.getColumns().add(cusName);
-        customerTable.getColumns().add(cusDescription);
         customerTable.getColumns().add(cusContact);
         customerTable.getColumns().add(cusDateOfPur);
-        customerTable.getColumns().add(cusReview);
 
         customerTable.setItems(App.newCustomers);
 
@@ -349,10 +336,8 @@ public class SecondaryController {
                     NewCustomer clickedRow = row.getItem();
                     csCusId.setText(Long.toString(clickedRow.getCustomerIdCs()));
                     csName.setText(clickedRow.getCustomerName());
-                    csDescrip.setText(clickedRow.getDescriptionOfOrderCustomer());
                     csContact.setText(Long.toString(clickedRow.getContact()));
                     csDateOfPur.setText(String.valueOf(clickedRow.getDateOfPurchase()));
-                    csReview.setText(clickedRow.getReview());
                 }
             });
             return row;

@@ -1,27 +1,24 @@
 package org.example;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class NewOrder {
 
     public long productIdOrder;
     public long customerId;
-    public String descriptionOfOrder;
     public double totalPrice;
-    public String assignedEmployee;
+    public Date dateOfOrder;
     public String status;
-    public Date date;
+    public Date dueDate;
 
 
-    public NewOrder (long productIdOrder, long customerId, String descriptionOfOrder, double totalPrice, String assignedEmployee, String status, Date date) {
+    public NewOrder (long productIdOrder, long customerId, double totalPrice, Date dateOfOrder, String status, Date dueDate) {
         this.productIdOrder = productIdOrder;
         this.customerId = customerId;
-        this.descriptionOfOrder = descriptionOfOrder;
         this.totalPrice = totalPrice;
-        this.assignedEmployee = assignedEmployee;
+        this.dateOfOrder = dateOfOrder;
         this.status = status;
-        this.date = date;
+        this.dueDate = dueDate;
     }
 
     public long getProductIdOrder() {
@@ -40,14 +37,6 @@ public class NewOrder {
         this.customerId = customerId;
     }
 
-    public String getDescriptionOfOrder() {
-        return descriptionOfOrder;
-    }
-
-    public void setDescriptionOfOrder(String descriptionOfOrder) {
-        this.descriptionOfOrder = descriptionOfOrder;
-    }
-
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -56,12 +45,12 @@ public class NewOrder {
         this.totalPrice = totalPrice;
     }
 
-    public String getAssignedEmployee() {
-        return assignedEmployee;
+    public Date getDateOfOrder() {
+        return dateOfOrder;
     }
 
-    public void setAssignedEmployee(String assignedEmployee) {
-        this.assignedEmployee = assignedEmployee;
+    public void setDateOfOrder(Date dateOfOrder) {
+        this.dateOfOrder = dateOfOrder;
     }
 
     public String getStatus() {
@@ -72,11 +61,11 @@ public class NewOrder {
         this.status = status;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDueDate() {
+        return dueDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 }

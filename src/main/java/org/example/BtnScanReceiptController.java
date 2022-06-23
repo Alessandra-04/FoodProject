@@ -26,6 +26,8 @@ import net.sourceforge.tess4j.TesseractException;
 import org.apache.commons.io.FileUtils;
 import java.util.regex.*;
 
+import static org.example.App.foodItems;
+
 
 public class BtnScanReceiptController implements Initializable {
 
@@ -129,13 +131,13 @@ public class BtnScanReceiptController implements Initializable {
             String showText = "";
             while (matchItem.find()){
                     showText = showText + matchItem.group(1) + "\n";
-                    if (showText.contains(foodItems) = true)
+                    if (showText.contains((CharSequence) foodItems) == true)
 
                     // 1. check if the item already exists in fooditems.
                 // 2. if it exists add a number to that fooditem
                 //3. if it doesn't exist create a new food item and add the number bought.
 
-                    App.foodItems.add(new FoodItem(matchItem.group(0) ,matchItem.group(2), matchItem.group(3)));
+                    foodItems.add(new FoodItem(matchItem.group(0) ,matchItem.group(2), matchItem.group(3)));
                     // access churros table and put each item on the right column
 
                 }

@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.FileWriter;
@@ -22,9 +21,7 @@ public class BtnCustomerAddCustomerController {
     public TextField csName;
     public TextField csContact;
     public DatePicker csDateOfPur;
-    public TextField csReview;
     public Button btnSaveAddCustomer;
-    public TextArea csDescription;
 
     public void switchToSecondary(ActionEvent actionEvent) {
         Boolean exists = false;
@@ -39,7 +36,7 @@ public class BtnCustomerAddCustomerController {
             LocalDate localDate = csDateOfPur.getValue();
             Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
             Date datePur = Date.from(instant);
-            App.newCustomers.add(new NewCustomer(Long.parseLong(csCusId.getText()), csName.getText(), csDescription.getText(), Long.parseLong(csContact.getText()), datePur, csReview.getText()));
+            App.newCustomers.add(new NewCustomer(Long.parseLong(csCusId.getText()), csName.getText(), Long.parseLong(csContact.getText()), datePur));
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

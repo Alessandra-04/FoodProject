@@ -4,21 +4,20 @@ public class FoodItem {
 
     public long productId;
     public String name;
-    public String description;
     public double standardCost;
     public int stock;
-    public String supplier;
     public Double amountLeft;
 
 
-    public FoodItem(long productId, String name, String description, double standardCost, int stock, String supplier, Double amountLeft) {
+    public FoodItem(long productId, String name, double standardCost, int stock, Double amountLeft) {
         this.productId = productId;
         this.name = name;
-        this.description = description;
         this.standardCost = standardCost;
         this.stock = stock;
-        this.supplier = supplier;
         this.amountLeft = amountLeft;
+    }
+
+    public FoodItem(String group, String group1, String group2) {
     }
 
     public long getProductId() {
@@ -37,14 +36,6 @@ public class FoodItem {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public double getStandardCost() {
         return standardCost;
     }
@@ -59,14 +50,6 @@ public class FoodItem {
 
     public void setStock(int stock) {
         this.stock = stock;
-    }
-
-    public String getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(String supplier) {
-        this.supplier = supplier;
     }
 
     public double getCategory() {

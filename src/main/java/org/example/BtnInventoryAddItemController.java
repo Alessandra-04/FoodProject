@@ -15,11 +15,9 @@ import java.io.IOException;
 public class BtnInventoryAddItemController {
 
     public TextField cProdId;
-    public TextArea cDescrip;
     public TextField cName;
     public TextField cStandCost;
     public TextField cStock;
-    public TextField cSupplier;
     public TextField cAmtLeft;
     public Button cSaveItembtn;
 
@@ -33,7 +31,7 @@ public class BtnInventoryAddItemController {
             }
         }
         if(exists == false){
-            App.foodItems.add(new FoodItem(Integer.parseInt(cProdId.getText()), cName.getText(), cDescrip.getText(), Integer.parseInt(cStandCost.getText()), Integer.parseInt(cStock.getText()), cSupplier.getText(), Double.parseDouble(cAmtLeft.getText())));
+            App.foodItems.add(new FoodItem(Integer.parseInt(cProdId.getText()), cName.getText(), Integer.parseInt(cStandCost.getText()), Integer.parseInt(cStock.getText()), Double.parseDouble(cAmtLeft.getText())));
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

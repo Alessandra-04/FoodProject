@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.FileWriter;
@@ -20,11 +19,10 @@ public class BtnOrdersAddOrderController {
 
     public TextField oProdId;
     public TextField oCusId;
-    public TextArea oDescrip;
     public TextField oTotPr;
-    public TextField oAssEm;
+    public DatePicker oDateOfOrder;
     public TextField oStatus;
-    public DatePicker oDate;
+    public DatePicker oDueDate;
     public Button btnOrdersAddSave;
 
     public void switchToSecondary(ActionEvent actionEvent) {
@@ -37,11 +35,15 @@ public class BtnOrdersAddOrderController {
             }
         }
         if(exists == false){
-            System.out.println(oDate.getValue());
-            LocalDate localDate = oDate.getValue();
+            System.out.println(oDateOfOrder.getValue());
+            LocalDate localDate = oDateOfOrder.getValue();
             Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-            Date date = Date.from(instant);
-            App.newOrders.add(new NewOrder(Long.parseLong(oProdId.getText()), Long.parseLong(oCusId.getText()), oDescrip.getText(), Double.parseDouble(oTotPr.getText()), oAssEm.getText(), oStatus.getText(), date));
+            Date dateOfOrder = Date.from(instant);
+            System.out.println(oDueDate.getValue());
+            localDate = oDueDate.getValue();
+            instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date dueDate = Date.from(instant);
+            App.newOrders.add(new NewOrder(Long.parseLong(oProdId.getText()), Long.parseLong(oCusId.getText()), Double.parseDouble(oTotPr.getText()), dateOfOrder, oStatus.getText(), dueDate));
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
