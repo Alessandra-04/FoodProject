@@ -1,7 +1,5 @@
 package org.example;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,5 +55,6 @@ public class BtnInventoryShoppingListController implements Initializable {
         System.out.println("Choice selected!");
         int amountOfFlour = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue()); //flour...
         System.out.println(amountOfFlour);
+        //water, sugar, etc
     }
 }

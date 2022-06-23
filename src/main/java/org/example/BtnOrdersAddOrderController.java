@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.FileWriter;
@@ -20,6 +21,7 @@ public class BtnOrdersAddOrderController {
     public TextField oProdId;
     public TextField oCusId;
     public TextField oTotPr;
+    public TextArea oDescription;
     public DatePicker oDateOfOrder;
     public TextField oStatus;
     public DatePicker oDueDate;
@@ -43,7 +45,7 @@ public class BtnOrdersAddOrderController {
             localDate = oDueDate.getValue();
             instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
             Date dueDate = Date.from(instant);
-            App.newOrders.add(new NewOrder(Long.parseLong(oProdId.getText()), Long.parseLong(oCusId.getText()), Double.parseDouble(oTotPr.getText()), dateOfOrder, oStatus.getText(), dueDate));
+            App.newOrders.add(new NewOrder(Long.parseLong(oProdId.getText()), Long.parseLong(oCusId.getText()), Double.parseDouble(oTotPr.getText()), oDescription.getText(), dateOfOrder, oStatus.getText(), dueDate));
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

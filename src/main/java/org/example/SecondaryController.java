@@ -163,6 +163,7 @@ public class SecondaryController {
     public TextField oProdId;
     public TextField oCusId;
     public TextField oTotPr;
+    public TextField oDescription;
     public TextField oDateOfOrder;
     public TextField oStatus;
     public TextField oDueDate;
@@ -170,6 +171,7 @@ public class SecondaryController {
     public TableColumn<NewOrder, Long> orProductIds = new TableColumn("Product Ids");
     public TableColumn<NewOrder, Long> orCusId = new TableColumn<>("Customer Id");
     public TableColumn<NewOrder, Double> orTotalPrice = new TableColumn<>("Total Price");
+    public TableColumn<NewOrder, String> orDescription = new TableColumn<>("Description");
     public TableColumn<NewOrder, Date> orDateOfOrder = new TableColumn<>("Date of Order");
     public TableColumn<NewOrder, String> orStatus = new TableColumn<>("Status");
     public TableColumn<NewOrder, Date> orDueDate = new TableColumn<>("Due Date");
@@ -223,6 +225,7 @@ public class SecondaryController {
         orProductIds.setCellValueFactory(new PropertyValueFactory<NewOrder, Long>("productIdOrder"));
         orCusId.setCellValueFactory(new PropertyValueFactory<NewOrder, Long>("customerId"));
         orTotalPrice.setCellValueFactory(new PropertyValueFactory<NewOrder, Double>("totalPrice"));
+        orDescription.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("description"));
         orDateOfOrder.setCellValueFactory(new PropertyValueFactory<NewOrder, Date>("dateOfOrder"));
         orStatus.setCellValueFactory(new PropertyValueFactory<NewOrder, String>("status"));
         orDueDate.setCellValueFactory(new PropertyValueFactory<NewOrder, Date>("dueDate"));
@@ -230,6 +233,7 @@ public class SecondaryController {
         ordersTable.getColumns().add(orProductIds);
         ordersTable.getColumns().add(orCusId);
         ordersTable.getColumns().add(orTotalPrice);
+        ordersTable.getColumns().add(orDescription);
         ordersTable.getColumns().add(orDateOfOrder);
         ordersTable.getColumns().add(orStatus);
         ordersTable.getColumns().add(orDueDate);
@@ -244,6 +248,7 @@ public class SecondaryController {
                     oProdId.setText(Long.toString(clickedRow.getProductIdOrder()));
                     oCusId.setText(Long.toString(clickedRow.getCustomerId()));
                     oTotPr.setText(Double.toString(clickedRow.getTotalPrice()));
+                    oDescription.setText(clickedRow.getStatus());
                     oDateOfOrder.setText(String.valueOf(clickedRow.getDateOfOrder()));
                     oStatus.setText(clickedRow.getStatus());
                     oDueDate.setText(String.valueOf(clickedRow.getDueDate()));

@@ -131,7 +131,7 @@ public class BtnScanReceiptController implements Initializable {
             String showText = "";
             while (matchItem.find()){
                     showText = showText + matchItem.group(1) + "\n";
-                    if (showText.contains((CharSequence) foodItems) == true)
+                    if (showText.contains((CharSequence) foodItems))
 
                     // 1. check if the item already exists in fooditems.
                 // 2. if it exists add a number to that fooditem

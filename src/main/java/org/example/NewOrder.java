@@ -7,15 +7,17 @@ public class NewOrder {
     public long productIdOrder;
     public long customerId;
     public double totalPrice;
+    public String description;
     public Date dateOfOrder;
     public String status;
     public Date dueDate;
 
 
-    public NewOrder (long productIdOrder, long customerId, double totalPrice, Date dateOfOrder, String status, Date dueDate) {
+    public NewOrder (long productIdOrder, long customerId, double totalPrice, String description, Date dateOfOrder, String status, Date dueDate) {
         this.productIdOrder = productIdOrder;
         this.customerId = customerId;
         this.totalPrice = totalPrice;
+        this.description = description;
         this.dateOfOrder = dateOfOrder;
         this.status = status;
         this.dueDate = dueDate;
@@ -43,6 +45,14 @@ public class NewOrder {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getDateOfOrder() {
