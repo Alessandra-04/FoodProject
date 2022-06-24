@@ -1,18 +1,10 @@
 package org.example;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
+
 import javafx.scene.control.*;
-
-
-import javafx.scene.Scene;
-
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,7 +30,7 @@ public class BtnScanReceiptController implements Initializable {
     public ListView openImageList;
     public TextArea txtReceipt;
 
-    public TextField cProdId;
+    public TextField oProdId;
 
 
     ArrayList<File> receipts = new ArrayList<>();
@@ -131,19 +123,26 @@ public class BtnScanReceiptController implements Initializable {
             String showText = "";
             while (matchItem.find()){
                     showText = showText + matchItem.group(1) + "\n";
-                    if (showText.contains((CharSequence) foodItems))
+                    if (foodItems.contains(oProdId)){
+                        foodItems.add(Integer.parseInt(matchItem.group(1));
+                    }else{
+                        foodItems.add(oProdId);
+                        foodItems.add(Integer.parseInt(matchItem.group(1));
 
+                    }
                     // 1. check if the item already exists in fooditems.
                 // 2. if it exists add a number to that fooditem
                 //3. if it doesn't exist create a new food item and add the number bought.
 
-                    foodItems.add(new FoodItem(matchItem.group(0) ,matchItem.group(2), matchItem.group(3)));
+                    foodItems.add(new FoodItem(matchItem.group(1) ,matchItem.group(2), matchItem.group(3)));
+
+
                     // access churros table and put each item on the right column
 
                 }
             txtReceipt.setText(showText);
 
-            /*
+
             String datesPattern = "(Fecha de Emision:([0-9]{2})/([0-9]{2})/([0-9]{4}))";
             Pattern datePattern = Pattern.compile(datesPattern, Pattern.MULTILINE);
             Matcher matchDate = datePattern.matcher(text);
@@ -163,8 +162,6 @@ public class BtnScanReceiptController implements Initializable {
 
             }
             txtReceipt.setText(showTime);
-
-             */
 
 
             //tempName = ""

@@ -56,5 +56,26 @@ public class BtnInventoryShoppingListController implements Initializable {
         int amountOfFlour = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue()); //flour...
         System.out.println(amountOfFlour);
         //water, sugar, etc
+        int amountOfSalt = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        System.out.println(amountOfSalt);
+        int amountOfBakingPowder = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        System.out.println(amountOfBakingPowder);
+        int amountOfOil = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        System.out.println(amountOfOil);
+        int amountOfWater = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        System.out.println(amountOfWater);
+        int amountOfSugar = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        System.out.println(amountOfSugar);
+        int amountOfCinnamon = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        System.out.println(amountOfCinnamon);
+
+        /*
+        150 g flour
+        1 tsp baking powder
+        Pinch of salt
+        1 tbsp vegetable, canola or olive oil (not extra virgin olive oil)
+        250 ml boiling water
+        500 ml+ vegetable or canola oil , for frying
+                */
     }
 }
