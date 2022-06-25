@@ -53,6 +53,7 @@ public class BtnInventoryShoppingListController implements Initializable {
 
     public void choiceSelected(ActionEvent actionEvent) {
         System.out.println("Choice selected!");
+
         int amountOfFlour = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue()); //flour...
         System.out.println(amountOfFlour);
         //water, sugar, etc

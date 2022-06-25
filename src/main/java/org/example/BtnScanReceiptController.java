@@ -85,7 +85,7 @@ public class BtnScanReceiptController implements Initializable {
     public void toShoppingList(ActionEvent actionEvent) {
 
         String saveText = txtReceipt.getText();
-        System.out.println(cProdId);
+        System.out.println(oProdId);
 
         // save scan
 
@@ -117,6 +117,7 @@ public class BtnScanReceiptController implements Initializable {
              * https://www.tutorialspoint.com/javaregex/javaregex_capturing_groups.htm
              */
 
+
             String itemsPattern = "([0-9]{13})\\s+([a-z,A-Z,\\s.]+).*(\\s[0-9]{1,2}[,.][0-9]{2})";
             Pattern itemPattern = Pattern.compile(itemsPattern, Pattern.MULTILINE);
             Matcher matchItem = itemPattern.matcher(text);
@@ -124,18 +125,17 @@ public class BtnScanReceiptController implements Initializable {
             while (matchItem.find()){
                     showText = showText + matchItem.group(1) + "\n";
                     if (foodItems.contains(oProdId)){
-                        foodItems.add(Integer.parseInt(matchItem.group(1));
+                        oProdId.setText(matchItem.group(1));
                     }else{
-                        foodItems.add(oProdId);
-                        foodItems.add(Integer.parseInt(matchItem.group(1));
-
+                        foodItems.add(new FoodItem);
+                        new FoodItem = oProdId.setText(matchItem.group(1));
                     }
-                    // 1. check if the item already exists in fooditems.
-                // 2. if it exists add a number to that fooditem
-                //3. if it doesn't exist create a new food item and add the number bought.
+
+                    // 1. check if the item already exists in foodItems.
+                    // 2. if it exists add a number to that foodItem
+                    //3. if it doesn't exist create a new food item and add the number bought.
 
                     foodItems.add(new FoodItem(matchItem.group(1) ,matchItem.group(2), matchItem.group(3)));
-
 
                     // access churros table and put each item on the right column
 
