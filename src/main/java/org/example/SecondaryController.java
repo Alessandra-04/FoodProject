@@ -313,8 +313,8 @@ public class SecondaryController {
                     cProdId.setText(Long.toString(clickedRow.getProductId()));
                     cName.setText(clickedRow.getName());
                     cStandCost.setText(Double.toString(clickedRow.getStandardCost()));
-                    cStock.setText(Integer.toString(clickedRow.getStock()));
-                    cAmtLeft.setText(Double.toString(clickedRow.getCategory()));
+                    cStock.setText(Double.toString(clickedRow.getStock()));
+                    cAmtLeft.setText(Double.toString(clickedRow.getAmountLeft()));
                 }
             });
             return row;

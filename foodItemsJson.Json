@@ -1,16 +1,2 @@
 [
-  {
-    "productId": 1234567891234,
-    "name": "Leche",
-    "standardCost": 4,
-    "stock": 2,
-    "amountLeft": 11.4
-  },
-  {
-    "productId": 1234567891235,
-    "name": "Aceite",
-    "standardCost": 10,
-    "stock": 1,
-    "amountLeft": 2.1
-  }
 ]

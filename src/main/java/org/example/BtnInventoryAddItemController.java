@@ -22,6 +22,7 @@ public class BtnInventoryAddItemController {
 
 
     public void switchToSecondary(ActionEvent actionEvent) {
+        /**
         Boolean exists = false;
         for(FoodItem f:App.foodItems){
             if (f.getProductId() == (Integer.parseInt(cProdId.getText()))) {
@@ -32,6 +33,7 @@ public class BtnInventoryAddItemController {
         if(exists == false){
             App.foodItems.add(new FoodItem(Integer.parseInt(cProdId.getText()), cName.getText(), Integer.parseInt(cStandCost.getText()), Integer.parseInt(cStock.getText()), Double.parseDouble(cAmtLeft.getText())));
         }
+        **/
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try(FileWriter writer = new FileWriter("foodItemsJson.Json")){

@@ -39,7 +39,10 @@ public class App extends Application {
         //ArrayList<recipeItem> recipeItems;
         ArrayList<FoodItem> ingredients = new ArrayList<>();
 
-        ingredients.add(new FoodItem(123421213,"Flour", 8.90, 1,100.0));
+        FoodItem flour = new FoodItem(123421213,"Flour", 8.90, 1000);
+        flour.setAmountLeft(150);
+        ingredients.add(flour);
+
         String method = "This is how I make a churro \n is a new line.";
         int portions = 12;
         int minutes = 15;

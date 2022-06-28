@@ -30,7 +30,7 @@ public class BtnScanReceiptController implements Initializable {
     public ListView openImageList;
     public TextArea txtReceipt;
 
-    public TextField oProdId;
+    public TextField cProdId;
 
 
     ArrayList<File> receipts = new ArrayList<>();
@@ -85,7 +85,7 @@ public class BtnScanReceiptController implements Initializable {
     public void toShoppingList(ActionEvent actionEvent) {
 
         String saveText = txtReceipt.getText();
-        System.out.println(oProdId);
+        System.out.println(cProdId);
 
         // save scan
 
@@ -109,7 +109,7 @@ public class BtnScanReceiptController implements Initializable {
             String text = tesseract.doOCR(receipts.get(0));
 
             // path of your image file
-            System.out.print(text);
+            //System.out.print(text);
 
             txtReceipt.setText(text);
 
@@ -124,24 +124,35 @@ public class BtnScanReceiptController implements Initializable {
             String showText = "";
             while (matchItem.find()){
                     showText = showText + matchItem.group(1) + "\n";
-                    if (foodItems.contains(oProdId)){
-                        oProdId.setText(matchItem.group(1));
+                    if (foodItems.contains(cProdId)){
+                        cProdId.setText(matchItem.group(1));
                     }else{
-                        foodItems.add(new FoodItem);
-                        new FoodItem = oProdId.setText(matchItem.group(1));
+                       long productId = Long.parseLong(matchItem.group(1));
+                       String name = matchItem.group(2);
+                       double standardCost = Double.parseDouble(matchItem.group(3));
+                       int stock = 1;
+                       int sizeOfContainer = 1000;
+                       //if there is a double line (buying more than one of the same product
+                        FoodItem tempItem = new FoodItem(productId, name, standardCost, sizeOfContainer);
+                        /**
+                         * loop through how many items brought
+                         *      tempItem.addStock(i);
+                         */
+                       foodItems.add(tempItem);
                     }
 
                     // 1. check if the item already exists in foodItems.
                     // 2. if it exists add a number to that foodItem
                     //3. if it doesn't exist create a new food item and add the number bought.
 
-                    foodItems.add(new FoodItem(matchItem.group(1) ,matchItem.group(2), matchItem.group(3)));
+                    foodItems.add(new FoodItem(Long.parseLong(matchItem.group(1)) ,matchItem.group(2), Double.parseDouble(matchItem.group(3)), 1000 ));
 
                     // access churros table and put each item on the right column
 
                 }
             txtReceipt.setText(showText);
 
+            /*
 
             String datesPattern = "(Fecha de Emision:([0-9]{2})/([0-9]{2})/([0-9]{4}))";
             Pattern datePattern = Pattern.compile(datesPattern, Pattern.MULTILINE);
@@ -152,16 +163,6 @@ public class BtnScanReceiptController implements Initializable {
 
             }
             txtReceipt.setText(showDate);
-
-            String timesPattern = "(Hora:([0-9]{2}):([0-9]{2}))";
-            Pattern timePattern = Pattern.compile(timesPattern, Pattern.MULTILINE);
-            Matcher matchTime = timePattern.matcher(text);
-            String showTime = "";
-            while (matchTime.find()){
-                showTime = showTime + matchTime.group() + "\n";
-
-            }
-            txtReceipt.setText(showTime);
 
 
             //tempName = ""
@@ -183,7 +184,7 @@ public class BtnScanReceiptController implements Initializable {
             //		newItemFound=0
             //		pricefound=0
 
-
+*/
 
 
         }

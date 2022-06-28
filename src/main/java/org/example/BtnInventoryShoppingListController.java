@@ -54,20 +54,20 @@ public class BtnInventoryShoppingListController implements Initializable {
     public void choiceSelected(ActionEvent actionEvent) {
         System.out.println("Choice selected!");
 
-        int amountOfFlour = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue()); //flour...
+        int amountOfFlour = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue()); //flour...
         System.out.println(amountOfFlour);
         //water, sugar, etc
-        int amountOfSalt = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfSalt = (App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12) * Integer.parseInt(txtChoice.getValue());
         System.out.println(amountOfSalt);
-        int amountOfBakingPowder = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfBakingPowder = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
         System.out.println(amountOfBakingPowder);
-        int amountOfOil = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfOil = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
         System.out.println(amountOfOil);
-        int amountOfWater = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfWater = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
         System.out.println(amountOfWater);
-        int amountOfSugar = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfSugar = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
         System.out.println(amountOfSugar);
-        int amountOfCinnamon = App.churrosRecipe.getIngredients().get(0).getStock() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfCinnamon = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
         System.out.println(amountOfCinnamon);
 
         /*

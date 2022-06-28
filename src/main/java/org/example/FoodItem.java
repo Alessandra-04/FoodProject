@@ -5,21 +5,36 @@ public class FoodItem {
     public long productId;
     public String name;
     public double standardCost;
-    public int stock;
-    public Double amountLeft;
+    public double stock;
 
+    public int amountLeft;
+    public int sizeOfContainer;
 
-    public FoodItem(long productId, String name, double standardCost, int stock, Double amountLeft) {
+    public FoodItem(long productId, String name, double standardCost, int sizeOfContainer) {
         this.productId = productId;
         this.name = name;
         this.standardCost = standardCost;
-        this.stock = stock;
+        this.sizeOfContainer = sizeOfContainer;
+    }
+
+    public int getAmountLeft() {
+        return amountLeft;
+    }
+
+    public void setAmountLeft(int amountLeft) {
         this.amountLeft = amountLeft;
     }
 
-    public FoodItem(String group, String group1, String group2) {
+    public void addStock(int amount){
+        this.amountLeft += amount * this.sizeOfContainer;
     }
-
+    public void useAmountLeft(int amount){
+        this.amountLeft -= amount;
+        calcStock();
+    }
+    public void calcStock(){
+        this.stock = amountLeft/sizeOfContainer;
+    }
     public long getProductId() {
         return productId;
     }
@@ -44,7 +59,7 @@ public class FoodItem {
         this.standardCost = standardCost;
     }
 
-    public int getStock() {
+    public double getStock() {
         return stock;
     }
 
@@ -52,13 +67,7 @@ public class FoodItem {
         this.stock = stock;
     }
 
-    public double getCategory() {
-        return amountLeft;
-    }
 
-    public void setCategory(Double category) {
-        this.amountLeft = category;
-    }
 }
 
 
