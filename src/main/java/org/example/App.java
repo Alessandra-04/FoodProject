@@ -21,6 +21,7 @@ public class App extends Application {
     public static ObservableList<NewOrder> newOrders = FXCollections.observableArrayList();
     public static ObservableList<AddProduct> addProducts = FXCollections.observableArrayList();
     public static ObservableList<NewCustomer> newCustomers = FXCollections.observableArrayList();
+    public static ObservableList<ShoppingItem> shoppingItems = FXCollections.observableArrayList();
     public static Recipe churrosRecipe;
 
     @Override

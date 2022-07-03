@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -25,6 +27,10 @@ public class BtnInventoryShoppingListController implements Initializable {
 
     @FXML
     public ChoiceBox<String> txtChoice;
+    public TableView shoppingListTable;
+
+    public TableColumn<ShoppingItem, Long> orProductIds = new TableColumn("Item");
+    public TableColumn<ShoppingItem, Long> orCusId = new TableColumn<>("Amount");
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1){
