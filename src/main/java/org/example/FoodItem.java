@@ -35,6 +35,7 @@ public class FoodItem {
     public void calcStock(){
         this.stock = amountLeft/sizeOfContainer;
     }
+
     public long getProductId() {
         return productId;
     }
