@@ -138,6 +138,7 @@ public class BtnScanReceiptController implements Initializable {
                          * loop through how many items brought
                          *      tempItem.addStock(i);
                          */
+
                        foodItems.add(tempItem);
                     }
 
@@ -150,6 +151,7 @@ public class BtnScanReceiptController implements Initializable {
                     // access churros table and put each item on the right column
 
                 }
+
             txtReceipt.setText(showText);
 
             /*

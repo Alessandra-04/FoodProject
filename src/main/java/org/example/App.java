@@ -39,7 +39,7 @@ public class App extends Application {
         //ArrayList<recipeItem> recipeItems;
         ArrayList<FoodItem> ingredients = new ArrayList<>();
 
-        FoodItem flour = new FoodItem(123421213,"Flour", 8.90, 1000);
+        FoodItem flour = new FoodItem(7750243050593,"HARINA PRE", 6.90, 1000);
         flour.setAmountLeft(150);
         ingredients.add(flour);
 
