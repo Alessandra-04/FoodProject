@@ -29,8 +29,8 @@ public class BtnInventoryShoppingListController implements Initializable {
     public ChoiceBox<String> txtChoice;
     public TableView shoppingListTable;
 
-    public TableColumn<ShoppingItem, Long> orProductIds = new TableColumn("Item");
-    public TableColumn<ShoppingItem, Long> orCusId = new TableColumn<>("Amount");
+    public TableColumn<ShoppingItem, Long> sLItem = new TableColumn("Item");
+    public TableColumn<ShoppingItem, Long> sLAmount = new TableColumn<>("Amount");
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1){
@@ -63,19 +63,42 @@ public class BtnInventoryShoppingListController implements Initializable {
         int amountOfFlour = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue()); //flour...
         System.out.println(amountOfFlour);
         //water, sugar, etc
-        int amountOfSalt = (App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12) * Integer.parseInt(txtChoice.getValue());
-        System.out.println(amountOfSalt);
-        int amountOfBakingPowder = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfBakingPowder = App.churrosRecipe.getIngredients().get(1).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
         System.out.println(amountOfBakingPowder);
-        int amountOfOil = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
-        System.out.println(amountOfOil);
-        int amountOfWater = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
-        System.out.println(amountOfWater);
-        int amountOfSugar = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
-        System.out.println(amountOfSugar);
-        int amountOfCinnamon = App.churrosRecipe.getIngredients().get(0).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
-        System.out.println(amountOfCinnamon);
+        int amountOfSalt = (App.churrosRecipe.getIngredients().get(2).getAmountLeft() / 12) * Integer.parseInt(txtChoice.getValue());
+        System.out.println(amountOfSalt);
+        int amountOfOil = App.churrosRecipe.getIngredients().get(3).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfSugar = App.churrosRecipe.getIngredients().get(4).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfCanela = App.churrosRecipe.getIngredients().get(5).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
+        int amountOfManjar = App.churrosRecipe.getIngredients().get(6).getAmountLeft() / 12 * Integer.parseInt(txtChoice.getValue());
+        for (FoodItem I: App.churrosRecipe.getIngredients()){
+            for (FoodItem f:App.foodItems) {
 
+                if(f.getName().equals("Canela")){
+                    int needed = f.getAmountLeft() - amountOfCanela;
+                    App.shoppingItems.add(new ShoppingItem("Canela", needed));
+                }
+                if(f.getName().equals("Azucar")){
+                    int needed f.getAmountLeft() - amountOfSugar;
+                    App.shoppingItems.add(new ShoppingItem("Azucar", needed));
+                }
+                if(f.getName().equals("Manjar")){
+                    int needed f.getAmountLeft() - amountOfManjar;
+                    App.shoppingItems.add(new ShoppingItem("Manjar", needed));
+
+                }
+            }
+
+
+        }
+        for (ShoppingItem s:App.shoppingItems
+             ) {
+            System.out.println(s.getName() + " " + s.getAmount());
+        }
+        //
+
+
+        App.shoppingItems.add(new ShoppingItem())
         /*
         150 g flour
         1 tsp baking powder

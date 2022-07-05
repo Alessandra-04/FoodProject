@@ -40,22 +40,40 @@ public class App extends Application {
         //ArrayList<recipeItem> recipeItems;
         ArrayList<FoodItem> ingredients = new ArrayList<>();
 
-        FoodItem flour = new FoodItem(7750243050593,"HARINA PRE", 6.90, 1000);
+        FoodItem flour = new FoodItem(7750243050593L,"HARINA PRE", 6.90, 1000);
         flour.setAmountLeft(150);
+        FoodItem bakingPowder = new FoodItem(7752230119702L,"POLV HOR", 1.90, 25);
+        bakingPowder.setAmountLeft(6);
+        FoodItem salt = new FoodItem (7755019000123L, "SALDCOCINA", 2.50, 1000);
+        salt.setAmountLeft(1);
+        FoodItem oil = new FoodItem (7750243035101L, "ACEITE VEGE", 8.90, 1000);
+        oil.setAmountLeft(514);
+        // mL
+        FoodItem sugar = new FoodItem(2004405465523L, "AZUCAR RUB", 3.95, 1000);
+        sugar.setAmountLeft(60);
+        FoodItem canela = new FoodItem(7756714000029L, "CANELA", 4.39, 40);
+        canela.setAmountLeft(30);
+
+        FoodItem manjar = new FoodItem(7751271024662L, "MANJAR B", 10.90, 500);
+        manjar.setAmountLeft(400);
+
         ingredients.add(flour);
+        ingredients.add(bakingPowder);
+        ingredients.add(salt);
+        ingredients.add(oil);
+        ingredients.add(sugar);
+        ingredients.add(canela);
+        ingredients.add(manjar);
 
         String method = "This is how I make a churro \n is a new line.";
         int portions = 12;
         int minutes = 15;
         churrosRecipe = new Recipe(ingredients,method,portions,minutes);
         /**End of churros Recipe**/
+
         scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
         stage.show();
-
-
-
-
 
     }
 

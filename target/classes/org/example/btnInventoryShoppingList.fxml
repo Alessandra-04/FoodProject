@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="398.0" prefWidth="425.0" style="-fx-background-color: #003049;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BtnInventoryShoppingListController">
    <children>
-      <TableView layoutX="67.0" layoutY="101.0" prefHeight="209.0" prefWidth="273.0">
+      <TableView fx:id="shoppingListTable" layoutX="67.0" layoutY="101.0" prefHeight="209.0" prefWidth="273.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Item" />
           <TableColumn prefWidth="75.0" text="Amount" />
